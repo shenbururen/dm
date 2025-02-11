@@ -45,6 +45,7 @@ public class MainController implements Initializable {
     }
 
     public void addDmTerminal(TableData sqlTableData) {
+        tableView.getItems().remove(sqlTableData);
         tableView.getItems().add(sqlTableData);
     }
 

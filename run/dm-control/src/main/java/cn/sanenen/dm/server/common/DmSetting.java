@@ -12,8 +12,8 @@ public class DmSetting {
         setting = new Setting("dm.setting");
     }
     
-    public static String getControlPort() {
-        return setting.get("controlPort");
+    public static int getControlPort() {
+        return setting.getInt("controlPort");
     }
     
 }

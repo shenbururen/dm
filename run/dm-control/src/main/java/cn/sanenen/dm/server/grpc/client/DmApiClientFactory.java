@@ -3,30 +3,27 @@ package cn.sanenen.dm.server.grpc.client;
 import cn.hutool.aop.ProxyUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.ClassUtil;
-import cn.hutool.core.util.IdUtil;
 import cn.sanenen.dm.base.DmApi;
 import cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg;
 import cn.sanenen.dm.grpc.pkg.client.dm.DmCallServiceGrpc;
 import com.sun.jna.platform.win32.Variant;
-import io.grpc.Channel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 生成 DM 接口代理，grpc动态调用大漠api方法
+ *
  * @author sun
  **/
 public interface DmApiClientFactory {
 
     /**
      * 在后续执行方法时，会在grpc服务端创建一个对应的大漠对象。
-     * @param channel grpc 通信通道
+     *
      * @return DM 接口代理与服务端大漠对象一一对应。
      */
-    static DmApi newDmApi(Channel channel){
-        final DmCallServiceGrpc.DmCallServiceBlockingStub dmStub = DmCallServiceGrpc.newBlockingStub(channel);
-        final String dmInstanceId = IdUtil.simpleUUID();
+    static DmApi newDmApi(final DmCallServiceGrpc.DmCallServiceBlockingStub dmStub, final String dmInstanceId) {
         return ProxyUtil.newProxyInstance((proxy, method, args) -> {
             String methodName = method.getName();
             List<DmCallPg.KeyValuePair> params = new ArrayList<>();

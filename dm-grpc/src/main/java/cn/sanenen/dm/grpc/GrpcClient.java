@@ -4,6 +4,7 @@ import cn.sanenen.dm.common.CallFunction;
 import io.grpc.ConnectivityState;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import lombok.Getter;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -13,6 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class GrpcClient {
     private final String host;
     private final int port;
+    @Getter
     private final ManagedChannel channel;
     
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
@@ -103,10 +105,6 @@ public class GrpcClient {
             channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
         }
         scheduler.shutdown();
-    }
-
-    public ManagedChannel getChannel() {
-        return channel;
     }
 
 }

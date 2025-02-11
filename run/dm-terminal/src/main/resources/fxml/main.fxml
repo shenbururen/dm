@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="342.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.sanenen.dm.client.fx.controller.MainController">
+   <children>
+      <TextArea fx:id="logTextArea" layoutX="14.0" layoutY="61.0" prefHeight="242.0" prefWidth="409.0" />
+      <TextField fx:id="serverIp" editable="false" layoutX="22.0" layoutY="23.0" prefHeight="23.0" prefWidth="127.0" text="127.0.0.1" />
+      <TextField fx:id="serverPort" editable="false" layoutX="166.0" layoutY="23.0" prefHeight="23.0" prefWidth="67.0" text="12133" />
+      <Label layoutX="265.0" layoutY="27.0" prefHeight="15.0" prefWidth="60.0" text="注册端口：" />
+      <TextField fx:id="registerPort" editable="false" layoutX="332.0" layoutY="23.0" prefHeight="23.0" prefWidth="81.0" text="30000" />
+   </children>
+</AnchorPane>

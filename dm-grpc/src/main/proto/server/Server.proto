@@ -1,0 +1,22 @@
+syntax = "proto3";
+//定义java原生的方法服务
+
+option java_multiple_files = false;
+option java_package = "cn.sanenen.dm.grpc.pkg.server";
+option java_outer_classname = "ServerPg";
+
+//package cn.demo.dm.api.grpc.pkg;
+import "google/protobuf/empty.proto";
+
+message RegisterDmTerminalRequest {
+    string ip = 1;
+    int32 port = 2;
+}
+message RegisterDmTerminalResponse {
+    string ip = 1;
+}
+
+// 定义服务
+service ServerService {
+    rpc RegisterDmTerminal(RegisterDmTerminalRequest) returns (RegisterDmTerminalResponse);
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+//定义java原生的方法服务
+
+option java_multiple_files = false;
+option java_package = "cn.sanenen.dm.grpc.pkg.client.base";
+option java_outer_classname = "BaseJavaPg";
+
+//package cn.demo.dm.api.grpc.pkg;
+import "google/protobuf/empty.proto";
+
+// 定义请求和响应消息
+message getCurrentPIDResponse {
+    int64 pid = 1;
+}
+
+// 定义服务
+service BaseJavaService {
+    rpc getCurrentPID(google.protobuf.Empty) returns (getCurrentPIDResponse);
+}

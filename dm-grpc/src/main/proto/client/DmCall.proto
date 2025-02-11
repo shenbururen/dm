@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = false;
+option java_package = "cn.sanenen.dm.grpc.pkg.client.dm";
+option java_outer_classname = "DmCallPg";
+
+
+// 键值对消息，用于表示参数或结果
+message KeyValuePair {
+  string key = 1;
+  string value = 2;
+}
+
+message DmCallRequest {
+  string dm_instance_id = 2; // 大漠对象id，不存在则创建新的
+  string method_name = 3; // 要调用的方法名
+  repeated KeyValuePair params = 4; // 不定个数的参数
+}
+
+message DmCallResponse {
+  repeated KeyValuePair results = 4; // 不定个数的响应结果
+}
+
+service DmCallService {
+  rpc Call(DmCallRequest) returns (DmCallResponse);
+}

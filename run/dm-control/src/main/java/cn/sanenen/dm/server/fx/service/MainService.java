@@ -18,6 +18,8 @@ public class MainService {
         
         if (isNew) {
             TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
+            TerminalService terminalService = Singleton.get(TerminalService.class);
+            terminalService.uploadFiles(ip);
             TableData sqlTableData = new TableData();
             sqlTableData.setIp(ip);
             sqlTableData.setPort(port);

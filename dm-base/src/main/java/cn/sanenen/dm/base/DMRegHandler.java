@@ -3,6 +3,7 @@ package cn.sanenen.dm.base;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.RuntimeUtil;
 import cn.hutool.log.Log;
+import cn.sanenen.dm.common.Constant;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.Pointer;
@@ -34,7 +35,7 @@ public class DMRegHandler {
      * jna 调用标准免注册dll
      */
     private interface DmReg extends Library {
-        DmReg INSTANCE = Native.load("DmReg.dll", DmReg.class);
+        DmReg INSTANCE = Native.load(Constant.DM_FILES + "/DmReg.dll", DmReg.class);
 
         /**
          * SetDllPathA  字符串(Ascii码表示插件所在的路径),整数(0表示STA，1表示MTA)
@@ -49,7 +50,7 @@ public class DMRegHandler {
 
     public static int handler() {
         //获取dm.dll的绝对路径。
-        String absolutePath = FileUtil.getAbsolutePath("dm.dll");
+        String absolutePath = FileUtil.getAbsolutePath(Constant.DM_FILES + "/dm.dll");
         log.info("大漠插件路径:{}", absolutePath);
         int result = DmReg.INSTANCE.SetDllPathA(absolutePath, 1);
         log.info("免注册调用结果：{}", result == 1 ? "成功" : "失败");

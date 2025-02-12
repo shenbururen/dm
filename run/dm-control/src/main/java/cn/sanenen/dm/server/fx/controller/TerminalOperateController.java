@@ -38,21 +38,21 @@ public class TerminalOperateController implements Initializable {
     public void delFiles(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
-            terminalService.delFiles(tableData);
+            terminalService.delFiles(tableData.getIp());
         });
     }
 
     public void uploadFiles(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
-            terminalService.uploadFiles(tableData);
+            terminalService.uploadFiles(tableData.getIp());
         });
     }
 
     public void getHasFiles(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
-            List<String> hasFiles = terminalService.getHasFiles(tableData);
+            List<String> hasFiles = terminalService.getHasFiles(tableData.getIp());
             log_textArea.setText(String.join("\n", hasFiles));
         });
     }

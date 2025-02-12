@@ -7,7 +7,6 @@ import cn.sanenen.dm.common.Constant;
 import cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.common.TerminalContext;
-import cn.sanenen.dm.server.fx.model.entity.TableData;
 
 import java.io.File;
 import java.util.List;
@@ -17,15 +16,15 @@ import java.util.List;
  **/
 public class TerminalService {
     private static final Log log = Log.get();
-    public void delFiles(TableData tableData) {
+    public void delFiles(String ip) {
         log.info("删除文件");
-        TerminalContext terminalContext = TerminalCache.getTerminalContext(tableData.getIp());
+        TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
         terminalContext.baseClient.delAllFiles();
     }
 
-    public void uploadFiles(TableData tableData) {
+    public void uploadFiles(String ip) {
         log.info("上传文件");
-        TerminalContext terminalContext = TerminalCache.getTerminalContext(tableData.getIp());
+        TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
         File mkdir = FileUtil.mkdir("test");
         File dmFilesDir = FileUtil.mkdir(Constant.DM_FILES);
         log.info("test：{}",mkdir.getPath());
@@ -51,8 +50,8 @@ public class TerminalService {
         }
     }
 
-    public List<String> getHasFiles(TableData tableData) {
-        TerminalContext terminalContext = TerminalCache.getTerminalContext(tableData.getIp());
+    public List<String> getHasFiles(String ip) {
+        TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
         List<BaseJavaPg.getHasFilesResponse.HasFile> hasFiles = terminalContext.baseClient.getHasFiles();
         return hasFiles.stream().map(BaseJavaPg.getHasFilesResponse.HasFile::getFilePath).toList();
     }

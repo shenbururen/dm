@@ -7,6 +7,7 @@ import cn.hutool.log.Log;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -30,6 +31,7 @@ public class Main extends javafx.application.Application{
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("DM Terminal");
+        primaryStage.getIcons().add(new Image("icon.png"));
         primaryStage.sizeToScene();
         primaryStage.setOnCloseRequest(event -> {
             if (CronUtil.getScheduler().isStarted()) {

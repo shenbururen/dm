@@ -40,7 +40,7 @@ public class GrpcClient {
     private ManagedChannel createNewChannel() {
         return ManagedChannelBuilder.forAddress(host, port)
                 .keepAliveTime(30, TimeUnit.SECONDS)
-                .keepAliveTimeout(5, TimeUnit.SECONDS)
+                .keepAliveTimeout(60, TimeUnit.SECONDS)
                 .usePlaintext()
                 .enableRetry()
                 .build();

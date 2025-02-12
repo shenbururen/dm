@@ -10,10 +10,31 @@ import "google/protobuf/empty.proto";
 
 // 定义请求和响应消息
 message getCurrentPIDResponse {
-    int64 pid = 1;
+  int64 pid = 1;
+}
+
+message uploadFileRequest {
+  string fileName = 1;
+  string filePath = 2;
+  bytes fileBytes = 4;
+}
+
+message getHasFilesResponse {
+  message HasFile {
+    string fileName = 1;
+    string filePath = 2;
+    int64 fileSize = 3;
+  };
+  repeated HasFile hasFiles = 1;
 }
 
 // 定义服务
 service BaseJavaService {
-    rpc getCurrentPID(google.protobuf.Empty) returns (getCurrentPIDResponse);
+  rpc getCurrentPID(google.protobuf.Empty) returns (getCurrentPIDResponse);
+  //获取已有的资源文件
+  rpc getHasFiles(google.protobuf.Empty) returns (getHasFilesResponse);
+  //删除所有资源文件
+  rpc delAllFiles(google.protobuf.Empty) returns (google.protobuf.Empty);
+  //上传资源文件
+  rpc uploadFile(uploadFileRequest) returns (google.protobuf.Empty);
 }

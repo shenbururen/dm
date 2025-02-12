@@ -468,11 +468,2228 @@ public final class BaseJavaPg {
 
   }
 
+  public interface uploadFileRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:uploadFileRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string fileName = 1;</code>
+     * @return The fileName.
+     */
+    java.lang.String getFileName();
+    /**
+     * <code>string fileName = 1;</code>
+     * @return The bytes for fileName.
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    /**
+     * <code>string filePath = 2;</code>
+     * @return The filePath.
+     */
+    java.lang.String getFilePath();
+    /**
+     * <code>string filePath = 2;</code>
+     * @return The bytes for filePath.
+     */
+    com.google.protobuf.ByteString
+        getFilePathBytes();
+
+    /**
+     * <code>bytes fileBytes = 4;</code>
+     * @return The fileBytes.
+     */
+    com.google.protobuf.ByteString getFileBytes();
+  }
+  /**
+   * Protobuf type {@code uploadFileRequest}
+   */
+  public static final class uploadFileRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:uploadFileRequest)
+      uploadFileRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 29,
+        /* patch= */ 3,
+        /* suffix= */ "",
+        uploadFileRequest.class.getName());
+    }
+    // Use uploadFileRequest.newBuilder() to construct.
+    private uploadFileRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private uploadFileRequest() {
+      fileName_ = "";
+      filePath_ = "";
+      fileBytes_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_uploadFileRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_uploadFileRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.class, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.Builder.class);
+    }
+
+    public static final int FILENAME_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fileName_ = "";
+    /**
+     * <code>string fileName = 1;</code>
+     * @return The fileName.
+     */
+    @java.lang.Override
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string fileName = 1;</code>
+     * @return The bytes for fileName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object filePath_ = "";
+    /**
+     * <code>string filePath = 2;</code>
+     * @return The filePath.
+     */
+    @java.lang.Override
+    public java.lang.String getFilePath() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 2;</code>
+     * @return The bytes for filePath.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILEBYTES_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString fileBytes_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <code>bytes fileBytes = 4;</code>
+     * @return The fileBytes.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getFileBytes() {
+      return fileBytes_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fileName_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, fileName_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(filePath_)) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, filePath_);
+      }
+      if (!fileBytes_.isEmpty()) {
+        output.writeBytes(4, fileBytes_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fileName_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, fileName_);
+      }
+      if (!com.google.protobuf.GeneratedMessage.isStringEmpty(filePath_)) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, filePath_);
+      }
+      if (!fileBytes_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, fileBytes_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest)) {
+        return super.equals(obj);
+      }
+      cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest other = (cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest) obj;
+
+      if (!getFileName()
+          .equals(other.getFileName())) return false;
+      if (!getFilePath()
+          .equals(other.getFilePath())) return false;
+      if (!getFileBytes()
+          .equals(other.getFileBytes())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (37 * hash) + FILEBYTES_FIELD_NUMBER;
+      hash = (53 * hash) + getFileBytes().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code uploadFileRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:uploadFileRequest)
+        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_uploadFileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_uploadFileRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.class, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.Builder.class);
+      }
+
+      // Construct using cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        fileName_ = "";
+        filePath_ = "";
+        fileBytes_ = com.google.protobuf.ByteString.EMPTY;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_uploadFileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest getDefaultInstanceForType() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest build() {
+        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest buildPartial() {
+        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest result = new cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.fileName_ = fileName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.filePath_ = filePath_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.fileBytes_ = fileBytes_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest) {
+          return mergeFrom((cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest other) {
+        if (other == cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.getDefaultInstance()) return this;
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (other.getFileBytes() != com.google.protobuf.ByteString.EMPTY) {
+          setFileBytes(other.getFileBytes());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                fileName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                filePath_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 34: {
+                fileBytes_ = input.readBytes();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object fileName_ = "";
+      /**
+       * <code>string fileName = 1;</code>
+       * @return The fileName.
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       * @return The bytes for fileName.
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       * @param value The fileName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        fileName_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFileName() {
+        fileName_ = getDefaultInstance().getFileName();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       * @param value The bytes for fileName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        fileName_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object filePath_ = "";
+      /**
+       * <code>string filePath = 2;</code>
+       * @return The filePath.
+       */
+      public java.lang.String getFilePath() {
+        java.lang.Object ref = filePath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string filePath = 2;</code>
+       * @return The bytes for filePath.
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        java.lang.Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string filePath = 2;</code>
+       * @param value The filePath to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilePath(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        filePath_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilePath() {
+        filePath_ = getDefaultInstance().getFilePath();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 2;</code>
+       * @param value The bytes for filePath to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        filePath_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString fileBytes_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes fileBytes = 4;</code>
+       * @return The fileBytes.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getFileBytes() {
+        return fileBytes_;
+      }
+      /**
+       * <code>bytes fileBytes = 4;</code>
+       * @param value The fileBytes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileBytes(com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        fileBytes_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes fileBytes = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFileBytes() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        fileBytes_ = getDefaultInstance().getFileBytes();
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:uploadFileRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:uploadFileRequest)
+    private static final cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest();
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<uploadFileRequest>
+        PARSER = new com.google.protobuf.AbstractParser<uploadFileRequest>() {
+      @java.lang.Override
+      public uploadFileRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<uploadFileRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<uploadFileRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface getHasFilesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:getHasFilesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    java.util.List<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile> 
+        getHasFilesList();
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile getHasFiles(int index);
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    int getHasFilesCount();
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    java.util.List<? extends cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder> 
+        getHasFilesOrBuilderList();
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder getHasFilesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code getHasFilesResponse}
+   */
+  public static final class getHasFilesResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:getHasFilesResponse)
+      getHasFilesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    static {
+      com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+        com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+        /* major= */ 4,
+        /* minor= */ 29,
+        /* patch= */ 3,
+        /* suffix= */ "",
+        getHasFilesResponse.class.getName());
+    }
+    // Use getHasFilesResponse.newBuilder() to construct.
+    private getHasFilesResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private getHasFilesResponse() {
+      hasFiles_ = java.util.Collections.emptyList();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.class, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.Builder.class);
+    }
+
+    public interface HasFileOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:getHasFilesResponse.HasFile)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>string fileName = 1;</code>
+       * @return The fileName.
+       */
+      java.lang.String getFileName();
+      /**
+       * <code>string fileName = 1;</code>
+       * @return The bytes for fileName.
+       */
+      com.google.protobuf.ByteString
+          getFileNameBytes();
+
+      /**
+       * <code>string filePath = 2;</code>
+       * @return The filePath.
+       */
+      java.lang.String getFilePath();
+      /**
+       * <code>string filePath = 2;</code>
+       * @return The bytes for filePath.
+       */
+      com.google.protobuf.ByteString
+          getFilePathBytes();
+
+      /**
+       * <code>int64 fileSize = 3;</code>
+       * @return The fileSize.
+       */
+      long getFileSize();
+    }
+    /**
+     * Protobuf type {@code getHasFilesResponse.HasFile}
+     */
+    public static final class HasFile extends
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:getHasFilesResponse.HasFile)
+        HasFileOrBuilder {
+    private static final long serialVersionUID = 0L;
+      static {
+        com.google.protobuf.RuntimeVersion.validateProtobufGencodeVersion(
+          com.google.protobuf.RuntimeVersion.RuntimeDomain.PUBLIC,
+          /* major= */ 4,
+          /* minor= */ 29,
+          /* patch= */ 3,
+          /* suffix= */ "",
+          HasFile.class.getName());
+      }
+      // Use HasFile.newBuilder() to construct.
+      private HasFile(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+      }
+      private HasFile() {
+        fileName_ = "";
+        filePath_ = "";
+      }
+
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_HasFile_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_HasFile_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.class, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder.class);
+      }
+
+      public static final int FILENAME_FIELD_NUMBER = 1;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object fileName_ = "";
+      /**
+       * <code>string fileName = 1;</code>
+       * @return The fileName.
+       */
+      @java.lang.Override
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       * @return The bytes for fileName.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int FILEPATH_FIELD_NUMBER = 2;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object filePath_ = "";
+      /**
+       * <code>string filePath = 2;</code>
+       * @return The filePath.
+       */
+      @java.lang.Override
+      public java.lang.String getFilePath() {
+        java.lang.Object ref = filePath_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string filePath = 2;</code>
+       * @return The bytes for filePath.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        java.lang.Object ref = filePath_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int FILESIZE_FIELD_NUMBER = 3;
+      private long fileSize_ = 0L;
+      /**
+       * <code>int64 fileSize = 3;</code>
+       * @return The fileSize.
+       */
+      @java.lang.Override
+      public long getFileSize() {
+        return fileSize_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fileName_)) {
+          com.google.protobuf.GeneratedMessage.writeString(output, 1, fileName_);
+        }
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(filePath_)) {
+          com.google.protobuf.GeneratedMessage.writeString(output, 2, filePath_);
+        }
+        if (fileSize_ != 0L) {
+          output.writeInt64(3, fileSize_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(fileName_)) {
+          size += com.google.protobuf.GeneratedMessage.computeStringSize(1, fileName_);
+        }
+        if (!com.google.protobuf.GeneratedMessage.isStringEmpty(filePath_)) {
+          size += com.google.protobuf.GeneratedMessage.computeStringSize(2, filePath_);
+        }
+        if (fileSize_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(3, fileSize_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile)) {
+          return super.equals(obj);
+        }
+        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile other = (cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile) obj;
+
+        if (!getFileName()
+            .equals(other.getFileName())) return false;
+        if (!getFilePath()
+            .equals(other.getFilePath())) return false;
+        if (getFileSize()
+            != other.getFileSize()) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+        hash = (53 * hash) + getFileName().hashCode();
+        hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+        hash = (53 * hash) + getFilePath().hashCode();
+        hash = (37 * hash) + FILESIZE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFileSize());
+        hash = (29 * hash) + getUnknownFields().hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+            .parseWithIOException(PARSER, input);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+            .parseWithIOException(PARSER, input);
+      }
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessage
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code getHasFilesResponse.HasFile}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:getHasFilesResponse.HasFile)
+          cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_HasFile_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_HasFile_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.class, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder.class);
+        }
+
+        // Construct using cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.newBuilder()
+        private Builder() {
+
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          bitField0_ = 0;
+          fileName_ = "";
+          filePath_ = "";
+          fileSize_ = 0L;
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_HasFile_descriptor;
+        }
+
+        @java.lang.Override
+        public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile getDefaultInstanceForType() {
+          return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile build() {
+          cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile buildPartial() {
+          cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile result = new cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.fileName_ = fileName_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.filePath_ = filePath_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.fileSize_ = fileSize_;
+          }
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile) {
+            return mergeFrom((cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile other) {
+          if (other == cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.getDefaultInstance()) return this;
+          if (!other.getFileName().isEmpty()) {
+            fileName_ = other.fileName_;
+            bitField0_ |= 0x00000001;
+            onChanged();
+          }
+          if (!other.getFilePath().isEmpty()) {
+            filePath_ = other.filePath_;
+            bitField0_ |= 0x00000002;
+            onChanged();
+          }
+          if (other.getFileSize() != 0L) {
+            setFileSize(other.getFileSize());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  fileName_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  filePath_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 24: {
+                  fileSize_ = input.readInt64();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.unwrapIOException();
+          } finally {
+            onChanged();
+          } // finally
+          return this;
+        }
+        private int bitField0_;
+
+        private java.lang.Object fileName_ = "";
+        /**
+         * <code>string fileName = 1;</code>
+         * @return The fileName.
+         */
+        public java.lang.String getFileName() {
+          java.lang.Object ref = fileName_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            fileName_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string fileName = 1;</code>
+         * @return The bytes for fileName.
+         */
+        public com.google.protobuf.ByteString
+            getFileNameBytes() {
+          java.lang.Object ref = fileName_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            fileName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string fileName = 1;</code>
+         * @param value The fileName to set.
+         * @return This builder for chaining.
+         */
+        public Builder setFileName(
+            java.lang.String value) {
+          if (value == null) { throw new NullPointerException(); }
+          fileName_ = value;
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string fileName = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearFileName() {
+          fileName_ = getDefaultInstance().getFileName();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string fileName = 1;</code>
+         * @param value The bytes for fileName to set.
+         * @return This builder for chaining.
+         */
+        public Builder setFileNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
+          fileName_ = value;
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object filePath_ = "";
+        /**
+         * <code>string filePath = 2;</code>
+         * @return The filePath.
+         */
+        public java.lang.String getFilePath() {
+          java.lang.Object ref = filePath_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            filePath_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string filePath = 2;</code>
+         * @return The bytes for filePath.
+         */
+        public com.google.protobuf.ByteString
+            getFilePathBytes() {
+          java.lang.Object ref = filePath_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            filePath_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string filePath = 2;</code>
+         * @param value The filePath to set.
+         * @return This builder for chaining.
+         */
+        public Builder setFilePath(
+            java.lang.String value) {
+          if (value == null) { throw new NullPointerException(); }
+          filePath_ = value;
+          bitField0_ |= 0x00000002;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string filePath = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearFilePath() {
+          filePath_ = getDefaultInstance().getFilePath();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string filePath = 2;</code>
+         * @param value The bytes for filePath to set.
+         * @return This builder for chaining.
+         */
+        public Builder setFilePathBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
+          filePath_ = value;
+          bitField0_ |= 0x00000002;
+          onChanged();
+          return this;
+        }
+
+        private long fileSize_ ;
+        /**
+         * <code>int64 fileSize = 3;</code>
+         * @return The fileSize.
+         */
+        @java.lang.Override
+        public long getFileSize() {
+          return fileSize_;
+        }
+        /**
+         * <code>int64 fileSize = 3;</code>
+         * @param value The fileSize to set.
+         * @return This builder for chaining.
+         */
+        public Builder setFileSize(long value) {
+
+          fileSize_ = value;
+          bitField0_ |= 0x00000004;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int64 fileSize = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearFileSize() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          fileSize_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:getHasFilesResponse.HasFile)
+      }
+
+      // @@protoc_insertion_point(class_scope:getHasFilesResponse.HasFile)
+      private static final cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile();
+      }
+
+      public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<HasFile>
+          PARSER = new com.google.protobuf.AbstractParser<HasFile>() {
+        @java.lang.Override
+        public HasFile parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+      };
+
+      public static com.google.protobuf.Parser<HasFile> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<HasFile> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int HASFILES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private java.util.List<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile> hasFiles_;
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile> getHasFilesList() {
+      return hasFiles_;
+    }
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder> 
+        getHasFilesOrBuilderList() {
+      return hasFiles_;
+    }
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    @java.lang.Override
+    public int getHasFilesCount() {
+      return hasFiles_.size();
+    }
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    @java.lang.Override
+    public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile getHasFiles(int index) {
+      return hasFiles_.get(index);
+    }
+    /**
+     * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+     */
+    @java.lang.Override
+    public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder getHasFilesOrBuilder(
+        int index) {
+      return hasFiles_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < hasFiles_.size(); i++) {
+        output.writeMessage(1, hasFiles_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < hasFiles_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, hasFiles_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse)) {
+        return super.equals(obj);
+      }
+      cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse other = (cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse) obj;
+
+      if (!getHasFilesList()
+          .equals(other.getHasFilesList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getHasFilesCount() > 0) {
+        hash = (37 * hash) + HASFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getHasFilesList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessage
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code getHasFilesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:getHasFilesResponse)
+        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.class, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.Builder.class);
+      }
+
+      // Construct using cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (hasFilesBuilder_ == null) {
+          hasFiles_ = java.util.Collections.emptyList();
+        } else {
+          hasFiles_ = null;
+          hasFilesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.internal_static_getHasFilesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse getDefaultInstanceForType() {
+        return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse build() {
+        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse buildPartial() {
+        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse result = new cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse result) {
+        if (hasFilesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            hasFiles_ = java.util.Collections.unmodifiableList(hasFiles_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.hasFiles_ = hasFiles_;
+        } else {
+          result.hasFiles_ = hasFilesBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse) {
+          return mergeFrom((cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse other) {
+        if (other == cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.getDefaultInstance()) return this;
+        if (hasFilesBuilder_ == null) {
+          if (!other.hasFiles_.isEmpty()) {
+            if (hasFiles_.isEmpty()) {
+              hasFiles_ = other.hasFiles_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureHasFilesIsMutable();
+              hasFiles_.addAll(other.hasFiles_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.hasFiles_.isEmpty()) {
+            if (hasFilesBuilder_.isEmpty()) {
+              hasFilesBuilder_.dispose();
+              hasFilesBuilder_ = null;
+              hasFiles_ = other.hasFiles_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              hasFilesBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getHasFilesFieldBuilder() : null;
+            } else {
+              hasFilesBuilder_.addAllMessages(other.hasFiles_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile m =
+                    input.readMessage(
+                        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.parser(),
+                        extensionRegistry);
+                if (hasFilesBuilder_ == null) {
+                  ensureHasFilesIsMutable();
+                  hasFiles_.add(m);
+                } else {
+                  hasFilesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile> hasFiles_ =
+        java.util.Collections.emptyList();
+      private void ensureHasFilesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          hasFiles_ = new java.util.ArrayList<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile>(hasFiles_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder> hasFilesBuilder_;
+
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public java.util.List<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile> getHasFilesList() {
+        if (hasFilesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(hasFiles_);
+        } else {
+          return hasFilesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public int getHasFilesCount() {
+        if (hasFilesBuilder_ == null) {
+          return hasFiles_.size();
+        } else {
+          return hasFilesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile getHasFiles(int index) {
+        if (hasFilesBuilder_ == null) {
+          return hasFiles_.get(index);
+        } else {
+          return hasFilesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder setHasFiles(
+          int index, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile value) {
+        if (hasFilesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHasFilesIsMutable();
+          hasFiles_.set(index, value);
+          onChanged();
+        } else {
+          hasFilesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder setHasFiles(
+          int index, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder builderForValue) {
+        if (hasFilesBuilder_ == null) {
+          ensureHasFilesIsMutable();
+          hasFiles_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          hasFilesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder addHasFiles(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile value) {
+        if (hasFilesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHasFilesIsMutable();
+          hasFiles_.add(value);
+          onChanged();
+        } else {
+          hasFilesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder addHasFiles(
+          int index, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile value) {
+        if (hasFilesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHasFilesIsMutable();
+          hasFiles_.add(index, value);
+          onChanged();
+        } else {
+          hasFilesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder addHasFiles(
+          cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder builderForValue) {
+        if (hasFilesBuilder_ == null) {
+          ensureHasFilesIsMutable();
+          hasFiles_.add(builderForValue.build());
+          onChanged();
+        } else {
+          hasFilesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder addHasFiles(
+          int index, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder builderForValue) {
+        if (hasFilesBuilder_ == null) {
+          ensureHasFilesIsMutable();
+          hasFiles_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          hasFilesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder addAllHasFiles(
+          java.lang.Iterable<? extends cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile> values) {
+        if (hasFilesBuilder_ == null) {
+          ensureHasFilesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, hasFiles_);
+          onChanged();
+        } else {
+          hasFilesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder clearHasFiles() {
+        if (hasFilesBuilder_ == null) {
+          hasFiles_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          hasFilesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public Builder removeHasFiles(int index) {
+        if (hasFilesBuilder_ == null) {
+          ensureHasFilesIsMutable();
+          hasFiles_.remove(index);
+          onChanged();
+        } else {
+          hasFilesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder getHasFilesBuilder(
+          int index) {
+        return getHasFilesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder getHasFilesOrBuilder(
+          int index) {
+        if (hasFilesBuilder_ == null) {
+          return hasFiles_.get(index);  } else {
+          return hasFilesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public java.util.List<? extends cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder> 
+           getHasFilesOrBuilderList() {
+        if (hasFilesBuilder_ != null) {
+          return hasFilesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(hasFiles_);
+        }
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder addHasFilesBuilder() {
+        return getHasFilesFieldBuilder().addBuilder(
+            cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder addHasFilesBuilder(
+          int index) {
+        return getHasFilesFieldBuilder().addBuilder(
+            index, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .getHasFilesResponse.HasFile hasFiles = 1;</code>
+       */
+      public java.util.List<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder> 
+           getHasFilesBuilderList() {
+        return getHasFilesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder> 
+          getHasFilesFieldBuilder() {
+        if (hasFilesBuilder_ == null) {
+          hasFilesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFile.Builder, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.HasFileOrBuilder>(
+                  hasFiles_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          hasFiles_ = null;
+        }
+        return hasFilesBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:getHasFilesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:getHasFilesResponse)
+    private static final cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse();
+    }
+
+    public static cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<getHasFilesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<getHasFilesResponse>() {
+      @java.lang.Override
+      public getHasFilesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<getHasFilesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<getHasFilesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_getCurrentPIDResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_getCurrentPIDResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_uploadFileRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_uploadFileRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_getHasFilesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_getHasFilesResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_getHasFilesResponse_HasFile_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_getHasFilesResponse_HasFile_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -484,10 +2701,20 @@ public final class BaseJavaPg {
     java.lang.String[] descriptorData = {
       "\n\021client/Base.proto\032\033google/protobuf/emp" +
       "ty.proto\"$\n\025getCurrentPIDResponse\022\013\n\003pid" +
-      "\030\001 \001(\0032R\n\017BaseJavaService\022?\n\rgetCurrentP" +
-      "ID\022\026.google.protobuf.Empty\032\026.getCurrentP" +
-      "IDResponseB2\n\"cn.sanenen.dm.grpc.pkg.cli" +
-      "ent.baseB\nBaseJavaPgP\000b\006proto3"
+      "\030\001 \001(\003\"J\n\021uploadFileRequest\022\020\n\010fileName\030" +
+      "\001 \001(\t\022\020\n\010filePath\030\002 \001(\t\022\021\n\tfileBytes\030\004 \001" +
+      "(\014\"\206\001\n\023getHasFilesResponse\022.\n\010hasFiles\030\001" +
+      " \003(\0132\034.getHasFilesResponse.HasFile\032?\n\007Ha" +
+      "sFile\022\020\n\010fileName\030\001 \001(\t\022\020\n\010filePath\030\002 \001(" +
+      "\t\022\020\n\010fileSize\030\003 \001(\0032\210\002\n\017BaseJavaService\022" +
+      "?\n\rgetCurrentPID\022\026.google.protobuf.Empty" +
+      "\032\026.getCurrentPIDResponse\022;\n\013getHasFiles\022" +
+      "\026.google.protobuf.Empty\032\024.getHasFilesRes" +
+      "ponse\022=\n\013delAllFiles\022\026.google.protobuf.E" +
+      "mpty\032\026.google.protobuf.Empty\0228\n\nuploadFi" +
+      "le\022\022.uploadFileRequest\032\026.google.protobuf" +
+      ".EmptyB2\n\"cn.sanenen.dm.grpc.pkg.client." +
+      "baseB\nBaseJavaPgP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -500,6 +2727,24 @@ public final class BaseJavaPg {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_getCurrentPIDResponse_descriptor,
         new java.lang.String[] { "Pid", });
+    internal_static_uploadFileRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_uploadFileRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_uploadFileRequest_descriptor,
+        new java.lang.String[] { "FileName", "FilePath", "FileBytes", });
+    internal_static_getHasFilesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_getHasFilesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_getHasFilesResponse_descriptor,
+        new java.lang.String[] { "HasFiles", });
+    internal_static_getHasFilesResponse_HasFile_descriptor =
+      internal_static_getHasFilesResponse_descriptor.getNestedTypes().get(0);
+    internal_static_getHasFilesResponse_HasFile_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_getHasFilesResponse_HasFile_descriptor,
+        new java.lang.String[] { "FileName", "FilePath", "FileSize", });
     descriptor.resolveAllFeaturesImmutable();
     com.google.protobuf.EmptyProto.getDescriptor();
   }

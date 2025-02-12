@@ -9,4 +9,5 @@ public interface Constant {
      * 大漠dll 对象名
      */
     String DM_PROGID = "dm.dmsoft";
+    String DM_FILES = "files";
 }

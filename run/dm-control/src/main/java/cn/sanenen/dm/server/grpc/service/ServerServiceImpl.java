@@ -19,7 +19,7 @@ public class ServerServiceImpl extends ControlServiceGrpc.ControlServiceImplBase
 
     @Override
     public void registerDmTerminal(ControlPg.RegisterDmTerminalRequest request, StreamObserver<ControlPg.RegisterDmTerminalResponse> responseObserver) {
-        log.info("registerDmTerminal {}", MessageUtil.printJson(request));
+        log.trace("registerDmTerminal {}", MessageUtil.printJson(request));
         MainService mainService = Singleton.get(MainService.class);
         Context.Key<String> clientIpKey = ServerStart.clientIpKey;
         String ip = clientIpKey.get();

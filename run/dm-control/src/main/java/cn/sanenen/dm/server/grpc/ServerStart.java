@@ -28,7 +28,7 @@ public class ServerStart {
                         SocketAddress socketAddress = call.getAttributes().get(Grpc.TRANSPORT_ATTR_REMOTE_ADDR);
                         if (socketAddress instanceof InetSocketAddress inetSocketAddress) {
                             String clientIp = inetSocketAddress.getAddress().getHostAddress();
-                            log.info("Client  IP: {}", clientIp);
+                            log.trace("Client  IP: {}", clientIp);
                             Context context = Context.current().withValue(clientIpKey, clientIp);
                             return Contexts.interceptCall(context, call, headers, next);
                         }

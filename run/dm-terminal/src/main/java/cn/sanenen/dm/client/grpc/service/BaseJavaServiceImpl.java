@@ -2,6 +2,7 @@ package cn.sanenen.dm.client.grpc.service;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.log.Log;
 import cn.hutool.system.SystemUtil;
 import cn.sanenen.dm.client.Main;
@@ -74,7 +75,10 @@ public class BaseJavaServiceImpl extends BaseJavaServiceGrpc.BaseJavaServiceImpl
 
     @Override
     public void restart(Empty request, StreamObserver<Empty> responseObserver) {
-        Main.restart();
+        ThreadUtil.execute(() -> {
+            ThreadUtil.sleep(100);
+            Main.restart();
+        });
         responseObserver.onNext(Empty.newBuilder().build());
         responseObserver.onCompleted();
     }

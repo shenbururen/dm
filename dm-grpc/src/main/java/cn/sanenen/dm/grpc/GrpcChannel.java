@@ -25,6 +25,7 @@ public class GrpcChannel {
         this.host = host;
         this.port = port;
         this.channel = createNewChannel();
+        channel.getState(true);
     }
 
     public void setConnectSuccessHandler(CallFunction callFunction) {

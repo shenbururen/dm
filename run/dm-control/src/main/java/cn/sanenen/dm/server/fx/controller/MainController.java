@@ -80,7 +80,7 @@ public class MainController implements Initializable {
 
     private void handleAction(TableData data, Stage parentStage) throws IOException {
         Stage terminalStage = StageCache.terminalStage;
-        
+
         TerminalOperateController terminalOperateController = Singleton.get(TerminalOperateController.class);
         terminalOperateController.setTableData(data);
         terminalStage.setX(parentStage.getX() + 50);
@@ -93,8 +93,14 @@ public class MainController implements Initializable {
     private void addData(ActionEvent actionEvent) {
         File mkdir = FileUtil.file("test");
         File dmFilesDir = FileUtil.file(Constant.DM_FILES);
-        log.info("test：{}",mkdir.getPath());
-        log.info("资源目录：{}",dmFilesDir.getPath());
+        log.info("test：{}", mkdir.getPath());
+        log.info("资源目录：{}", dmFilesDir.getPath());
     }
 
+    public TableData getDmTerminal(String ip) {
+        return tableView.getItems().stream()
+                .filter(item -> item.getIp().equals(ip))
+                .findFirst()
+                .orElse(null);
+    }
 }

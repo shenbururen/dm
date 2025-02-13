@@ -7,10 +7,11 @@
    <children>
       <Label fx:id="ip_label" layoutX="14.0" layoutY="14.0" text="终端ip" />
       <Button layoutX="32.0" layoutY="44.0" mnemonicParsing="false" onAction="#delFiles" text="清除所有资源文件" />
-      <Button layoutX="173.0" layoutY="44.0" mnemonicParsing="false" onAction="#uploadFiles" text="上传所有资源文件" />
-      <Button layoutX="319.0" layoutY="44.0" mnemonicParsing="false" onAction="#getHasFiles" text="获取已有资源文件" />
+      <Button layoutX="154.0" layoutY="44.0" mnemonicParsing="false" onAction="#uploadFiles" text="上传所有资源文件" />
+      <Button layoutX="275.0" layoutY="44.0" mnemonicParsing="false" onAction="#getHasFiles" text="获取已有资源文件" />
       <Button layoutX="536.0" layoutY="44.0" mnemonicParsing="false" onAction="#getDmVer" text="大漠版本" />
       <Button layoutX="624.0" layoutY="44.0" mnemonicParsing="false" onAction="#test" text="测试" />
       <TextArea fx:id="log_textArea" layoutX="32.0" layoutY="80.0" prefHeight="455.0" prefWidth="792.0" />
+      <Button layoutX="500.0" layoutY="10.0" mnemonicParsing="false" text="启动" onAction="#start" />
    </children>
 </AnchorPane>

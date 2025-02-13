@@ -3,8 +3,10 @@ package cn.sanenen.dm.server.fx.controller;
 import cn.hutool.core.lang.Singleton;
 import cn.sanenen.dm.server.fx.model.entity.TableData;
 import cn.sanenen.dm.server.fx.service.TerminalService;
+import cn.sanenen.dm.server.game.GameStart;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -35,6 +37,7 @@ public class TerminalOperateController implements Initializable {
         ip_label.textProperty().bind(tableData.ipProperty());
     }
 
+    @FXML
     public void delFiles(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
@@ -42,6 +45,7 @@ public class TerminalOperateController implements Initializable {
         });
     }
 
+    @FXML
     public void uploadFiles(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
@@ -49,6 +53,7 @@ public class TerminalOperateController implements Initializable {
         });
     }
 
+    @FXML
     public void getHasFiles(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
@@ -57,20 +62,29 @@ public class TerminalOperateController implements Initializable {
         });
     }
 
+    @FXML
     public void getDmVer(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
             String dmVer = terminalService.getDmVer(tableData.getIp());
             tableData.setStatus("获取大漠版本");
             tableData.setVersion(dmVer);
-            log_textArea.appendText(dmVer+"\n");
+            log_textArea.appendText(dmVer + "\n");
         });
     }
 
+    @FXML
     public void test(ActionEvent actionEvent) {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
             terminalService.test(tableData.getIp());
+        });
+    }
+    @FXML
+    public void start() {
+        Platform.runLater(() -> {
+            GameStart gameStart = GameStart.getInstance(tableData.getIp());
+            gameStart.start();
         });
     }
 }

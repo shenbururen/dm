@@ -5,7 +5,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.base.DmApi;
 import cn.sanenen.dm.common.Constant;
-import cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg;
+import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.common.TerminalContext;
 import com.sun.jna.platform.win32.Variant;

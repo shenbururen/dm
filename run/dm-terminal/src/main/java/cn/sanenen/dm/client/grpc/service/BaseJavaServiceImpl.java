@@ -5,8 +5,8 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.log.Log;
 import cn.hutool.system.SystemUtil;
 import cn.sanenen.dm.common.Constant;
-import cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg;
-import cn.sanenen.dm.grpc.pkg.client.base.BaseJavaServiceGrpc;
+import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg;
+import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaServiceGrpc;
 import com.google.protobuf.Empty;
 import io.grpc.stub.StreamObserver;
 

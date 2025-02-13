@@ -2,7 +2,7 @@ package cn.sanenen.dm.server.common;
 
 import cn.sanenen.dm.base.DmApi;
 import cn.sanenen.dm.grpc.GrpcChannel;
-import cn.sanenen.dm.grpc.pkg.client.dm.DmCallServiceGrpc;
+import cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallServiceGrpc;
 import cn.sanenen.dm.server.grpc.client.BaseClient;
 import cn.sanenen.dm.server.grpc.client.DmApiClientFactory;
 

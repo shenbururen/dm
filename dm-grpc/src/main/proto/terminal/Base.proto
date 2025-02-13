@@ -2,7 +2,7 @@ syntax = "proto3";
 //定义java原生的方法服务
 
 option java_multiple_files = false;
-option java_package = "cn.sanenen.dm.grpc.pkg.client.base";
+option java_package = "cn.sanenen.dm.grpc.pkg.terminal.base";
 option java_outer_classname = "BaseJavaPg";
 
 //package cn.demo.dm.api.grpc.pkg;

@@ -17,7 +17,7 @@ public class TerminalCache {
     public static boolean cacheTerminalServer(String ip, int port) throws InterruptedException {
         String key = StrUtil.format("{}:{}", ip, port);
         if (terminalMap.containsKey(key)) {
-            log.info("{} 终端服务已存在", key);
+            log.trace("{} 终端服务已存在", key);
             return false;
         }
         TerminalContext terminalContext = terminalMap.computeIfAbsent(key

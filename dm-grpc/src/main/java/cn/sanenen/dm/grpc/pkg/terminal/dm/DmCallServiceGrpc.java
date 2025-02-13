@@ -1,4 +1,4 @@
-package cn.sanenen.dm.grpc.pkg.client.dm;
+package cn.sanenen.dm.grpc.pkg.terminal.dm;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -6,7 +6,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.69.1)",
-    comments = "Source: client/DmCall.proto")
+    comments = "Source: terminal/DmCall.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class DmCallServiceGrpc {
 
@@ -15,29 +15,29 @@ public final class DmCallServiceGrpc {
   public static final java.lang.String SERVICE_NAME = "DmCallService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest,
-      cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse> getCallMethod;
+  private static volatile io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest,
+      cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse> getCallMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "Call",
-      requestType = cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest.class,
-      responseType = cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse.class,
+      requestType = cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest.class,
+      responseType = cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest,
-      cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse> getCallMethod() {
-    io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest, cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse> getCallMethod;
+  public static io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest,
+      cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse> getCallMethod() {
+    io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest, cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse> getCallMethod;
     if ((getCallMethod = DmCallServiceGrpc.getCallMethod) == null) {
       synchronized (DmCallServiceGrpc.class) {
         if ((getCallMethod = DmCallServiceGrpc.getCallMethod) == null) {
           DmCallServiceGrpc.getCallMethod = getCallMethod =
-              io.grpc.MethodDescriptor.<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest, cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse>newBuilder()
+              io.grpc.MethodDescriptor.<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest, cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Call"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest.getDefaultInstance()))
+                  cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse.getDefaultInstance()))
+                  cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse.getDefaultInstance()))
               .setSchemaDescriptor(new DmCallServiceMethodDescriptorSupplier("Call"))
               .build();
         }
@@ -96,8 +96,8 @@ public final class DmCallServiceGrpc {
 
     /**
      */
-    default void call(cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest request,
-        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse> responseObserver) {
+    default void call(cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest request,
+        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCallMethod(), responseObserver);
     }
   }
@@ -131,8 +131,8 @@ public final class DmCallServiceGrpc {
 
     /**
      */
-    public void call(cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest request,
-        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse> responseObserver) {
+    public void call(cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest request,
+        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCallMethod(), getCallOptions()), request, responseObserver);
     }
@@ -156,7 +156,7 @@ public final class DmCallServiceGrpc {
 
     /**
      */
-    public cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse call(cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest request) {
+    public cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse call(cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCallMethod(), getCallOptions(), request);
     }
@@ -180,8 +180,8 @@ public final class DmCallServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse> call(
-        cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse> call(
+        cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCallMethod(), getCallOptions()), request);
     }
@@ -207,8 +207,8 @@ public final class DmCallServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CALL:
-          serviceImpl.call((cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest) request,
-              (io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse>) responseObserver);
+          serviceImpl.call((cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest) request,
+              (io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -232,8 +232,8 @@ public final class DmCallServiceGrpc {
           getCallMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallRequest,
-              cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.DmCallResponse>(
+              cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallRequest,
+              cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.DmCallResponse>(
                 service, METHODID_CALL)))
         .build();
   }
@@ -244,7 +244,7 @@ public final class DmCallServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg.getDescriptor();
+      return cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg.getDescriptor();
     }
 
     @java.lang.Override

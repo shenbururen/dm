@@ -1,4 +1,4 @@
-package cn.sanenen.dm.grpc.pkg.client.base;
+package cn.sanenen.dm.grpc.pkg.terminal.base;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
@@ -9,7 +9,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.69.1)",
-    comments = "Source: client/Base.proto")
+    comments = "Source: terminal/Base.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class BaseJavaServiceGrpc {
 
@@ -19,28 +19,28 @@ public final class BaseJavaServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse> getGetCurrentPIDMethod;
+      cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse> getGetCurrentPIDMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getCurrentPID",
       requestType = com.google.protobuf.Empty.class,
-      responseType = cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse.class,
+      responseType = cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse> getGetCurrentPIDMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse> getGetCurrentPIDMethod;
+      cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse> getGetCurrentPIDMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse> getGetCurrentPIDMethod;
     if ((getGetCurrentPIDMethod = BaseJavaServiceGrpc.getGetCurrentPIDMethod) == null) {
       synchronized (BaseJavaServiceGrpc.class) {
         if ((getGetCurrentPIDMethod = BaseJavaServiceGrpc.getGetCurrentPIDMethod) == null) {
           BaseJavaServiceGrpc.getGetCurrentPIDMethod = getGetCurrentPIDMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getCurrentPID"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse.getDefaultInstance()))
+                  cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse.getDefaultInstance()))
               .setSchemaDescriptor(new BaseJavaServiceMethodDescriptorSupplier("getCurrentPID"))
               .build();
         }
@@ -50,28 +50,28 @@ public final class BaseJavaServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse> getGetHasFilesMethod;
+      cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse> getGetHasFilesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getHasFiles",
       requestType = com.google.protobuf.Empty.class,
-      responseType = cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.class,
+      responseType = cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse> getGetHasFilesMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse> getGetHasFilesMethod;
+      cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse> getGetHasFilesMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse> getGetHasFilesMethod;
     if ((getGetHasFilesMethod = BaseJavaServiceGrpc.getGetHasFilesMethod) == null) {
       synchronized (BaseJavaServiceGrpc.class) {
         if ((getGetHasFilesMethod = BaseJavaServiceGrpc.getGetHasFilesMethod) == null) {
           BaseJavaServiceGrpc.getGetHasFilesMethod = getGetHasFilesMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getHasFiles"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse.getDefaultInstance()))
+                  cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse.getDefaultInstance()))
               .setSchemaDescriptor(new BaseJavaServiceMethodDescriptorSupplier("getHasFiles"))
               .build();
         }
@@ -111,27 +111,27 @@ public final class BaseJavaServiceGrpc {
     return getDelAllFilesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest,
+  private static volatile io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest,
       com.google.protobuf.Empty> getUploadFileMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "uploadFile",
-      requestType = cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.class,
+      requestType = cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest,
+  public static io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest,
       com.google.protobuf.Empty> getUploadFileMethod() {
-    io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest, com.google.protobuf.Empty> getUploadFileMethod;
+    io.grpc.MethodDescriptor<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest, com.google.protobuf.Empty> getUploadFileMethod;
     if ((getUploadFileMethod = BaseJavaServiceGrpc.getUploadFileMethod) == null) {
       synchronized (BaseJavaServiceGrpc.class) {
         if ((getUploadFileMethod = BaseJavaServiceGrpc.getUploadFileMethod) == null) {
           BaseJavaServiceGrpc.getUploadFileMethod = getUploadFileMethod =
-              io.grpc.MethodDescriptor.<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "uploadFile"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest.getDefaultInstance()))
+                  cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new BaseJavaServiceMethodDescriptorSupplier("uploadFile"))
@@ -196,7 +196,7 @@ public final class BaseJavaServiceGrpc {
     /**
      */
     default void getCurrentPID(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCurrentPIDMethod(), responseObserver);
     }
 
@@ -206,7 +206,7 @@ public final class BaseJavaServiceGrpc {
      * </pre>
      */
     default void getHasFiles(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetHasFilesMethod(), responseObserver);
     }
 
@@ -225,7 +225,7 @@ public final class BaseJavaServiceGrpc {
      *上传资源文件
      * </pre>
      */
-    default void uploadFile(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest request,
+    default void uploadFile(cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUploadFileMethod(), responseObserver);
     }
@@ -267,7 +267,7 @@ public final class BaseJavaServiceGrpc {
     /**
      */
     public void getCurrentPID(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetCurrentPIDMethod(), getCallOptions()), request, responseObserver);
     }
@@ -278,7 +278,7 @@ public final class BaseJavaServiceGrpc {
      * </pre>
      */
     public void getHasFiles(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetHasFilesMethod(), getCallOptions()), request, responseObserver);
     }
@@ -299,7 +299,7 @@ public final class BaseJavaServiceGrpc {
      *上传资源文件
      * </pre>
      */
-    public void uploadFile(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest request,
+    public void uploadFile(cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUploadFileMethod(), getCallOptions()), request, responseObserver);
@@ -327,7 +327,7 @@ public final class BaseJavaServiceGrpc {
 
     /**
      */
-    public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse getCurrentPID(com.google.protobuf.Empty request) {
+    public cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse getCurrentPID(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetCurrentPIDMethod(), getCallOptions(), request);
     }
@@ -337,7 +337,7 @@ public final class BaseJavaServiceGrpc {
      *获取已有的资源文件
      * </pre>
      */
-    public cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse getHasFiles(com.google.protobuf.Empty request) {
+    public cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse getHasFiles(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetHasFilesMethod(), getCallOptions(), request);
     }
@@ -357,7 +357,7 @@ public final class BaseJavaServiceGrpc {
      *上传资源文件
      * </pre>
      */
-    public com.google.protobuf.Empty uploadFile(cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest request) {
+    public com.google.protobuf.Empty uploadFile(cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUploadFileMethod(), getCallOptions(), request);
     }
@@ -384,7 +384,7 @@ public final class BaseJavaServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse> getCurrentPID(
+    public com.google.common.util.concurrent.ListenableFuture<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse> getCurrentPID(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetCurrentPIDMethod(), getCallOptions()), request);
@@ -395,7 +395,7 @@ public final class BaseJavaServiceGrpc {
      *获取已有的资源文件
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse> getHasFiles(
+    public com.google.common.util.concurrent.ListenableFuture<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse> getHasFiles(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetHasFilesMethod(), getCallOptions()), request);
@@ -418,7 +418,7 @@ public final class BaseJavaServiceGrpc {
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> uploadFile(
-        cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest request) {
+        cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUploadFileMethod(), getCallOptions()), request);
     }
@@ -448,18 +448,18 @@ public final class BaseJavaServiceGrpc {
       switch (methodId) {
         case METHODID_GET_CURRENT_PID:
           serviceImpl.getCurrentPID((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse>) responseObserver);
           break;
         case METHODID_GET_HAS_FILES:
           serviceImpl.getHasFiles((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse>) responseObserver);
           break;
         case METHODID_DEL_ALL_FILES:
           serviceImpl.delAllFiles((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_UPLOAD_FILE:
-          serviceImpl.uploadFile((cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest) request,
+          serviceImpl.uploadFile((cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:
@@ -485,14 +485,14 @@ public final class BaseJavaServiceGrpc {
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
               com.google.protobuf.Empty,
-              cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getCurrentPIDResponse>(
+              cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getCurrentPIDResponse>(
                 service, METHODID_GET_CURRENT_PID)))
         .addMethod(
           getGetHasFilesMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
               com.google.protobuf.Empty,
-              cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getHasFilesResponse>(
+              cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getHasFilesResponse>(
                 service, METHODID_GET_HAS_FILES)))
         .addMethod(
           getDelAllFilesMethod(),
@@ -505,7 +505,7 @@ public final class BaseJavaServiceGrpc {
           getUploadFileMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.uploadFileRequest,
+              cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_UPLOAD_FILE)))
         .build();
@@ -517,7 +517,7 @@ public final class BaseJavaServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg.getDescriptor();
+      return cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.getDescriptor();
     }
 
     @java.lang.Override

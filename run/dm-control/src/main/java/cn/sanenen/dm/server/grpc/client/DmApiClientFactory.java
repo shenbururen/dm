@@ -4,8 +4,8 @@ import cn.hutool.aop.ProxyUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.ClassUtil;
 import cn.sanenen.dm.base.DmApi;
-import cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg;
-import cn.sanenen.dm.grpc.pkg.client.dm.DmCallServiceGrpc;
+import cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg;
+import cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallServiceGrpc;
 import com.sun.jna.platform.win32.Variant;
 
 import java.util.ArrayList;

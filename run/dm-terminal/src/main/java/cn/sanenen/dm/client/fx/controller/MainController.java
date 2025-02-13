@@ -6,6 +6,7 @@ import cn.sanenen.dm.client.Main;
 import cn.sanenen.dm.client.common.DmSetting;
 import cn.sanenen.dm.client.grpc.ServerStart;
 import cn.sanenen.dm.client.grpc.client.ControlClient;
+import cn.sanenen.dm.common.fx.FxSub;
 import cn.sanenen.dm.grpc.GrpcChannel;
 import io.grpc.ManagedChannel;
 import javafx.application.Platform;
@@ -32,6 +33,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        FxSub.maxLength(logTextArea, 3000);
         try {
             Platform.runLater(() -> {
                 try {

@@ -1,5 +1,6 @@
 package cn.sanenen.dm.client.fx.controller;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.client.Main;
@@ -10,7 +11,6 @@ import cn.sanenen.dm.common.fx.FxSub;
 import cn.sanenen.dm.grpc.GrpcChannel;
 import io.grpc.ManagedChannel;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -27,6 +27,7 @@ public class MainController implements Initializable {
     public TextField serverIp;
     public TextArea logTextArea;
     public TextField serverPort;
+    public TextField registerIp;
     public TextField registerPort;
 
     private static final ServerStart serverStart = new ServerStart();
@@ -53,6 +54,7 @@ public class MainController implements Initializable {
                     controlChannel.startHeartbeat();
                     controlChannel.setConnectSuccessHandler(() -> {
                         String ip = controlClient.registerDmClient(port);
+                        registerIp.setText(ip);
                         appendLog("终端服务注册成功。终端注册ip:{}", ip);
                     });
                     controlChannel.setConnectFailHandler(() -> {
@@ -72,12 +74,12 @@ public class MainController implements Initializable {
 
     private void appendLog(CharSequence template, Object... params) {
         Platform.runLater(() -> {
-            String log = StrUtil.format(template + StrUtil.LF, params);
+            String log = StrUtil.format(DateUtil.now() + StrUtil.EMPTY + template + StrUtil.LF, params);
             logTextArea.appendText(log);
         });
     }
 
-    public void test(ActionEvent actionEvent) {
+    public void test() {
         try {
             appendLog("当前可执行文件路径：{}", System.getProperty("jpackage.app-path"));
             Main.restart();

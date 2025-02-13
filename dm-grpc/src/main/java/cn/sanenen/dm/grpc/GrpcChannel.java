@@ -55,7 +55,7 @@ public class GrpcChannel {
                     failCallFunction.call();
                 }
             }
-        }, 0, 10, TimeUnit.SECONDS);
+        }, 3, 10, TimeUnit.SECONDS);
     }
 
     private boolean checkConnection(ManagedChannel channel) {

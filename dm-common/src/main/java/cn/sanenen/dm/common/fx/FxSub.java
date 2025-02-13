@@ -12,6 +12,8 @@ public class FxSub {
         logTextArea.textProperty().addListener((observable, oldValue, newValue) -> {
             if (null != newValue && newValue.length() > length) {
                 logTextArea.setText("..." + StrUtil.sub(newValue, newValue.length() - length, newValue.length()));
+                //光标放到最后
+                logTextArea.setScrollTop(Double.MAX_VALUE);
             }
         });
     }

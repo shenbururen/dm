@@ -1,11 +1,13 @@
 package cn.sanenen.dm.client.grpc.service;
 
 import cn.hutool.core.convert.Convert;
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ClassUtil;
 import cn.hutool.core.util.ReflectUtil;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.base.DmApi;
 import cn.sanenen.dm.client.common.DmApiMap;
+import cn.sanenen.dm.common.Constant;
 import cn.sanenen.dm.grpc.common.MessageUtil;
 import cn.sanenen.dm.grpc.pkg.client.dm.DmCallPg;
 import cn.sanenen.dm.grpc.pkg.client.dm.DmCallServiceGrpc;
@@ -28,6 +30,7 @@ public class DmCallServiceImpl extends DmCallServiceGrpc.DmCallServiceImplBase {
         String methodName = request.getMethodName();
         log.info(MessageUtil.printJson(request));
         DmApi dmApi = DmApiMap.getDmApi(request.getDmInstanceId());
+        initDmApi(dmApi);
         Object[] params = new Object[request.getParamsCount()];
         Map<String, Variant.VARIANT> map = new HashMap<>();
         if (request.getParamsCount() > 0) {
@@ -54,5 +57,9 @@ public class DmCallServiceImpl extends DmCallServiceGrpc.DmCallServiceImplBase {
         }
         responseObserver.onNext(resultBuilder.build());
         responseObserver.onCompleted();
+    }
+    private void initDmApi(DmApi dmApi){
+        //设置资源路径
+        dmApi.SetPath(FileUtil.getAbsolutePath(Constant.DM_FILES));
     }
 }

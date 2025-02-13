@@ -56,4 +56,21 @@ public class TerminalOperateController implements Initializable {
             log_textArea.setText(String.join("\n", hasFiles));
         });
     }
+
+    public void getDmVer(ActionEvent actionEvent) {
+        Platform.runLater(() -> {
+            TerminalService terminalService = Singleton.get(TerminalService.class);
+            String dmVer = terminalService.getDmVer(tableData.getIp());
+            tableData.setStatus("获取大漠版本");
+            tableData.setVersion(dmVer);
+            log_textArea.appendText(dmVer+"\n");
+        });
+    }
+
+    public void test(ActionEvent actionEvent) {
+        Platform.runLater(() -> {
+            TerminalService terminalService = Singleton.get(TerminalService.class);
+            terminalService.test(tableData.getIp());
+        });
+    }
 }

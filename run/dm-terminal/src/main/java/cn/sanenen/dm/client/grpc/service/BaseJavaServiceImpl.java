@@ -31,7 +31,7 @@ public class BaseJavaServiceImpl extends BaseJavaServiceGrpc.BaseJavaServiceImpl
     public void getHasFiles(Empty request, StreamObserver<BaseJavaPg.getHasFilesResponse> responseObserver) {
         BaseJavaPg.getHasFilesResponse.Builder builder = BaseJavaPg.getHasFilesResponse.newBuilder();
         File dmFilesDir = FileUtil.mkdir(Constant.DM_FILES);
-        log.info("获取文件列表：{}", dmFilesDir.getPath());
+        log.info("文件列表：{}", dmFilesDir.getPath());
         List<File> files = FileUtil.loopFiles(dmFilesDir);
         if (CollUtil.isNotEmpty(files)) {
             for (File file : files) {
@@ -60,7 +60,13 @@ public class BaseJavaServiceImpl extends BaseJavaServiceGrpc.BaseJavaServiceImpl
     @Override
     public void delAllFiles(Empty request, StreamObserver<Empty> responseObserver) {
         File dmFilesDir = FileUtil.mkdir(Constant.DM_FILES);
-        FileUtil.del(dmFilesDir);
+        for (File file : FileUtil.loopFiles(dmFilesDir)) {
+            try {
+                FileUtil.del(file);
+            } catch (Exception e) {
+                log.error("删除文件失败：{},e:{}", file.getPath(),e.getMessage());
+            }
+        }
         responseObserver.onNext(Empty.newBuilder().build());
         responseObserver.onCompleted();
     }

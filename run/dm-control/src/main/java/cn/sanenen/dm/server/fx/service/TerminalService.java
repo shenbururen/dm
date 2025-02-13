@@ -3,10 +3,13 @@ package cn.sanenen.dm.server.fx.service;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.log.Log;
+import cn.sanenen.dm.base.DmApi;
 import cn.sanenen.dm.common.Constant;
 import cn.sanenen.dm.grpc.pkg.client.base.BaseJavaPg;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.common.TerminalContext;
+import com.sun.jna.platform.win32.Variant;
+import com.sun.jna.ptr.IntByReference;
 
 import java.io.File;
 import java.util.List;
@@ -54,5 +57,27 @@ public class TerminalService {
         TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
         List<BaseJavaPg.getHasFilesResponse.HasFile> hasFiles = terminalContext.baseClient.getHasFiles();
         return hasFiles.stream().map(BaseJavaPg.getHasFilesResponse.HasFile::getFilePath).toList();
+    }
+
+    public String getDmVer(String ip) {
+        TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
+        return terminalContext.dmMain.Ver();
+    }
+
+    public void test(String ip) {
+        TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
+        DmApi dmMain = terminalContext.dmMain;
+        
+        Variant.VARIANT x = new Variant.VARIANT(new IntByReference());
+        Variant.VARIANT y = new Variant.VARIANT(new IntByReference());
+        long result = dmMain.FindPic(0, 0, 4000, 4000, "img/test1.bmp", "000000", 0.9, 0, x, y);
+        log.info("FindPic:{}", result != -1 ? "成功" : "失败");
+        if (result != -1) {
+            log.info("x:{},y:{}", x.getValue(), y.getValue());
+            long moveToResult = dmMain.MoveTo(x.intValue(), y.intValue());
+            log.info("MoveTo:{}", moveToResult == 1 ? "成功" : "失败");
+        }
+        x.clear();
+        y.clear();
     }
 }

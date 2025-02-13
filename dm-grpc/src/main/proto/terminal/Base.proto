@@ -37,4 +37,6 @@ service BaseJavaService {
   rpc delAllFiles(google.protobuf.Empty) returns (google.protobuf.Empty);
   //上传资源文件
   rpc uploadFile(uploadFileRequest) returns (google.protobuf.Empty);
+  //重启终端
+  rpc restart(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

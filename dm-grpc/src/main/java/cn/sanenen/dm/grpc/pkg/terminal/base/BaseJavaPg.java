@@ -2706,15 +2706,17 @@ public final class BaseJavaPg {
       " \001(\014\"\206\001\n\023getHasFilesResponse\022.\n\010hasFiles" +
       "\030\001 \003(\0132\034.getHasFilesResponse.HasFile\032?\n\007" +
       "HasFile\022\020\n\010fileName\030\001 \001(\t\022\020\n\010filePath\030\002 " +
-      "\001(\t\022\020\n\010fileSize\030\003 \001(\0032\210\002\n\017BaseJavaServic" +
+      "\001(\t\022\020\n\010fileSize\030\003 \001(\0032\303\002\n\017BaseJavaServic" +
       "e\022?\n\rgetCurrentPID\022\026.google.protobuf.Emp" +
       "ty\032\026.getCurrentPIDResponse\022;\n\013getHasFile" +
       "s\022\026.google.protobuf.Empty\032\024.getHasFilesR" +
       "esponse\022=\n\013delAllFiles\022\026.google.protobuf" +
       ".Empty\032\026.google.protobuf.Empty\0228\n\nupload" +
       "File\022\022.uploadFileRequest\032\026.google.protob" +
-      "uf.EmptyB4\n$cn.sanenen.dm.grpc.pkg.termi" +
-      "nal.baseB\nBaseJavaPgP\000b\006proto3"
+      "uf.Empty\0229\n\007restart\022\026.google.protobuf.Em" +
+      "pty\032\026.google.protobuf.EmptyB4\n$cn.sanene" +
+      "n.dm.grpc.pkg.terminal.baseB\nBaseJavaPgP" +
+      "\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

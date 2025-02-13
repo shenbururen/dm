@@ -36,10 +36,6 @@ public class TerminalContext {
         baseClient = new BaseClient(grpcClient.getChannel());
     }
     
-    public String getDmVersion() {
-        return dmMain.Ver();
-    }
-    
     public void shutdown() throws InterruptedException {
         grpcClient.shutdown();
     }

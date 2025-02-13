@@ -74,7 +74,7 @@ public class MainController implements Initializable {
 
     private void appendLog(CharSequence template, Object... params) {
         Platform.runLater(() -> {
-            String log = StrUtil.format(DateUtil.now() + StrUtil.EMPTY + template + StrUtil.LF, params);
+            String log = StrUtil.format(DateUtil.now() + StrUtil.SPACE + template + StrUtil.LF, params);
             logTextArea.appendText(log);
         });
     }

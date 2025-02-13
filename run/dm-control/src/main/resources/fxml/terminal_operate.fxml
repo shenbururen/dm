@@ -12,6 +12,7 @@
       <Button layoutX="536.0" layoutY="44.0" mnemonicParsing="false" onAction="#getDmVer" text="大漠版本" />
       <Button layoutX="624.0" layoutY="44.0" mnemonicParsing="false" onAction="#test" text="测试" />
       <TextArea fx:id="log_textArea" layoutX="32.0" layoutY="80.0" prefHeight="455.0" prefWidth="792.0" />
-      <Button layoutX="500.0" layoutY="10.0" mnemonicParsing="false" text="启动" onAction="#start" />
+      <Button layoutX="536.0" layoutY="10.0" mnemonicParsing="false" onAction="#start" text="启动" />
+      <Button layoutX="166.0" layoutY="10.0" mnemonicParsing="false" onAction="#restart" text="重启终端程序" />
    </children>
 </AnchorPane>

@@ -142,6 +142,37 @@ public final class BaseJavaServiceGrpc {
     return getUploadFileMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.google.protobuf.Empty> getRestartMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "restart",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      com.google.protobuf.Empty> getRestartMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.google.protobuf.Empty> getRestartMethod;
+    if ((getRestartMethod = BaseJavaServiceGrpc.getRestartMethod) == null) {
+      synchronized (BaseJavaServiceGrpc.class) {
+        if ((getRestartMethod = BaseJavaServiceGrpc.getRestartMethod) == null) {
+          BaseJavaServiceGrpc.getRestartMethod = getRestartMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "restart"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new BaseJavaServiceMethodDescriptorSupplier("restart"))
+              .build();
+        }
+      }
+    }
+    return getRestartMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -229,6 +260,16 @@ public final class BaseJavaServiceGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUploadFileMethod(), responseObserver);
     }
+
+    /**
+     * <pre>
+     *重启终端
+     * </pre>
+     */
+    default void restart(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRestartMethod(), responseObserver);
+    }
   }
 
   /**
@@ -304,6 +345,17 @@ public final class BaseJavaServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUploadFileMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     *重启终端
+     * </pre>
+     */
+    public void restart(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRestartMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -360,6 +412,16 @@ public final class BaseJavaServiceGrpc {
     public com.google.protobuf.Empty uploadFile(cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUploadFileMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *重启终端
+     * </pre>
+     */
+    public com.google.protobuf.Empty restart(com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRestartMethod(), getCallOptions(), request);
     }
   }
 
@@ -422,12 +484,24 @@ public final class BaseJavaServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUploadFileMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     *重启终端
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> restart(
+        com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRestartMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_CURRENT_PID = 0;
   private static final int METHODID_GET_HAS_FILES = 1;
   private static final int METHODID_DEL_ALL_FILES = 2;
   private static final int METHODID_UPLOAD_FILE = 3;
+  private static final int METHODID_RESTART = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -460,6 +534,10 @@ public final class BaseJavaServiceGrpc {
           break;
         case METHODID_UPLOAD_FILE:
           serviceImpl.uploadFile((cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_RESTART:
+          serviceImpl.restart((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:
@@ -508,6 +586,13 @@ public final class BaseJavaServiceGrpc {
               cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg.uploadFileRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_UPLOAD_FILE)))
+        .addMethod(
+          getRestartMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.google.protobuf.Empty,
+              com.google.protobuf.Empty>(
+                service, METHODID_RESTART)))
         .build();
   }
 
@@ -560,6 +645,7 @@ public final class BaseJavaServiceGrpc {
               .addMethod(getGetHasFilesMethod())
               .addMethod(getDelAllFilesMethod())
               .addMethod(getUploadFileMethod())
+              .addMethod(getRestartMethod())
               .build();
         }
       }

@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * @author sun
  **/
+@SuppressWarnings("all")
 public class BaseClient {
     private static final Log log = Log.get();
     final BaseJavaServiceGrpc.BaseJavaServiceBlockingStub baseStub;
@@ -47,5 +48,9 @@ public class BaseClient {
                 .build();
         log.info("上传文件：{}", filePath);
         baseStub.uploadFile(request);
+    }
+    
+    public void restart() {
+        baseStub.restart(Empty.newBuilder().build());
     }
 }

@@ -1,6 +1,9 @@
 package cn.sanenen.dm.server.fx.controller;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Singleton;
+import cn.hutool.core.util.StrUtil;
+import cn.sanenen.dm.common.fx.FxSub;
 import cn.sanenen.dm.server.fx.model.entity.TableData;
 import cn.sanenen.dm.server.fx.service.TerminalService;
 import cn.sanenen.dm.server.game.GameStart;
@@ -25,15 +28,18 @@ public class TerminalOperateController implements Initializable {
     public Label ip_label;
     public TextArea log_textArea;
 
-
     private TableData tableData;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        FxSub.maxLength(log_textArea, 1000);
     }
-    
+
     public void setTableData(TableData tableData) {
         this.tableData = tableData;
+        if (this.tableData != null && !this.tableData.getIp().equals(tableData.getIp())) {
+            log_textArea.setText("");
+        }
         ip_label.textProperty().bind(tableData.ipProperty());
     }
 
@@ -42,6 +48,7 @@ public class TerminalOperateController implements Initializable {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
             terminalService.delFiles(tableData.getIp());
+            appendLog("delFiles");
         });
     }
 
@@ -58,7 +65,7 @@ public class TerminalOperateController implements Initializable {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
             List<String> hasFiles = terminalService.getHasFiles(tableData.getIp());
-            log_textArea.setText(String.join("\n", hasFiles));
+            appendLog("getHasFiles {}", String.join("\n", hasFiles));
         });
     }
 
@@ -69,7 +76,7 @@ public class TerminalOperateController implements Initializable {
             String dmVer = terminalService.getDmVer(tableData.getIp());
             tableData.setStatus("获取大漠版本");
             tableData.setVersion(dmVer);
-            log_textArea.appendText(dmVer + "\n");
+            appendLog("获取大漠版本 {}", dmVer);
         });
     }
 
@@ -80,11 +87,29 @@ public class TerminalOperateController implements Initializable {
             terminalService.test(tableData.getIp());
         });
     }
+
     @FXML
     public void start() {
         Platform.runLater(() -> {
             GameStart gameStart = GameStart.getInstance(tableData.getIp());
             gameStart.start();
+        });
+    }
+
+    @FXML
+    public void restart() {
+        Platform.runLater(() -> {
+            TerminalService terminalService = Singleton.get(TerminalService.class);
+            terminalService.restart(tableData.getIp());
+            tableData.setStatus("重启中");
+            appendLog("重启中");
+        });
+    }
+
+    private void appendLog(CharSequence template, Object... params) {
+        Platform.runLater(() -> {
+            String log = StrUtil.format(DateUtil.now() + StrUtil.SPACE + template + StrUtil.LF, params);
+            log_textArea.appendText(log);
         });
     }
 }

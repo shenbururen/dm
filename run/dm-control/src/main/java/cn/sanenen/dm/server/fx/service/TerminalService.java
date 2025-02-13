@@ -80,4 +80,9 @@ public class TerminalService {
         x.clear();
         y.clear();
     }
+
+    public void restart(String ip) {
+        TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
+        terminalContext.baseClient.restart();
+    }
 }

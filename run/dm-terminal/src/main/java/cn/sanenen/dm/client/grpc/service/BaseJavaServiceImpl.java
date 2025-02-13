@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.log.Log;
 import cn.hutool.system.SystemUtil;
+import cn.sanenen.dm.client.Main;
 import cn.sanenen.dm.common.Constant;
 import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg;
 import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaServiceGrpc;
@@ -67,6 +68,13 @@ public class BaseJavaServiceImpl extends BaseJavaServiceGrpc.BaseJavaServiceImpl
                 log.error("删除文件失败：{},e:{}", file.getPath(),e.getMessage());
             }
         }
+        responseObserver.onNext(Empty.newBuilder().build());
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void restart(Empty request, StreamObserver<Empty> responseObserver) {
+        Main.restart();
         responseObserver.onNext(Empty.newBuilder().build());
         responseObserver.onCompleted();
     }

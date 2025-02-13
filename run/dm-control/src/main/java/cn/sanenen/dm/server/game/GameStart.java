@@ -45,7 +45,7 @@ public class GameStart {
         }
         
         GameStatus status = gameService.identifyTheCurrentStatusOfTheTerminal(ip);
-        String dmVersion = terminalContext.getDmVersion();
+        String dmVersion = terminalContext.dmMain.Ver();
 
         mainService.setTerminalStatus(ip, status);
         mainService.setTerminalVersion(ip, dmVersion);

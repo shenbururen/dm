@@ -10,5 +10,6 @@
       <TextField fx:id="serverPort" editable="false" layoutX="166.0" layoutY="23.0" prefHeight="23.0" prefWidth="67.0" text="12133" />
       <Label layoutX="265.0" layoutY="27.0" prefHeight="15.0" prefWidth="60.0" text="注册端口：" />
       <TextField fx:id="registerPort" editable="false" layoutX="332.0" layoutY="23.0" prefHeight="23.0" prefWidth="81.0" text="30000" />
+      <Button layoutX="22.0" layoutY="303.0" mnemonicParsing="false" text="测试" onAction="#test"/>
    </children>
 </AnchorPane>

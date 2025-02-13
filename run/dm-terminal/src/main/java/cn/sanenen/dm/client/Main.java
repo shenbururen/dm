@@ -2,6 +2,7 @@ package cn.sanenen.dm.client;
 
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.lang.Singleton;
+import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.cron.CronUtil;
 import cn.hutool.log.Log;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 /**
  * @author sun
  **/
@@ -17,6 +20,28 @@ public class Main extends javafx.application.Application{
     private static final Log log = Log.get();
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    public static void restart() {
+        try {
+            String exePath = System.getProperty("jpackage.app-path");
+            if (exePath == null) {
+                log.error("无法获取 EXE 路径，程序可能不是通过 jpackage 运行！");
+                return;
+            }
+
+            File exeFile = new File(exePath);
+            if (!exeFile.exists()) {
+                log.error("EXE 文件不存在：{}", exeFile.getAbsolutePath());
+                return;
+            }
+            new ProcessBuilder(exeFile.getAbsolutePath()).start();
+            System.exit(0);
+        } catch (Exception e) {
+            log.error(e);
+            ThreadUtil.sleep(5000);
+            restart();
+        }
     }
     @Override
     public void start(Stage primaryStage) throws Exception {

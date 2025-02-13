@@ -7,10 +7,10 @@ import io.grpc.Channel;
 /**
  * @author sun
  **/
-public class ServerClient{
+public class ControlClient {
     final ServerServiceGrpc.ServerServiceBlockingStub serverStub;
 
-    public ServerClient(Channel channel) {
+    public ControlClient(Channel channel) {
         serverStub = ServerServiceGrpc.newBlockingStub(channel);
     }
 

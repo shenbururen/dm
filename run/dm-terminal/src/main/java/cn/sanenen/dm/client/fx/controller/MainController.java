@@ -1,12 +1,15 @@
 package cn.sanenen.dm.client.fx.controller;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.Log;
+import cn.sanenen.dm.client.Main;
 import cn.sanenen.dm.client.common.DmSetting;
 import cn.sanenen.dm.client.grpc.ServerStart;
-import cn.sanenen.dm.client.grpc.client.ServerClient;
-import cn.sanenen.dm.grpc.GrpcClient;
+import cn.sanenen.dm.client.grpc.client.ControlClient;
+import cn.sanenen.dm.grpc.GrpcChannel;
 import io.grpc.ManagedChannel;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -30,34 +33,53 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            int port = serverStart.start();
-            registerPort.setText(String.valueOf(port));
-            
-            String controlHost = DmSetting.getControlHost();
-            int controlPort = DmSetting.getControlPort();
-            GrpcClient controlClient = new GrpcClient(controlHost, controlPort);
-            serverIp.setText(controlHost);
-            serverPort.setText(String.valueOf(controlPort));
-            ManagedChannel channel = controlClient.getChannel();
-            ServerClient serverClient = new ServerClient(channel);
-            String string = serverClient.registerDmClient(port);
             Platform.runLater(() -> {
-                logTextArea.appendText("连接成功，注册服务成功。111" );
-            });
-            controlClient.setConnectSuccessHandler(() -> {
-                String ip = serverClient.registerDmClient(port);
-                Platform.runLater(() -> {
-                    logTextArea.appendText("连接成功，注册服务成功。" + ip);
-                });
-            });
-            controlClient.setConnectFailHandler(() -> {
-                Platform.runLater(() -> {
-                    logTextArea.appendText("连接失败。");
-                });
-                
+                try {
+                    appendLog("启动中...");
+                    int port = serverStart.start();
+                    registerPort.setText(String.valueOf(port));
+                    appendLog("终端服务启动完成，端口号{}", port);
+
+                    String controlHost = DmSetting.getControlHost();
+                    int controlPort = DmSetting.getControlPort();
+                    appendLog("终端服务注册中...中控{}:{}", controlHost, port);
+                    GrpcChannel controlChannel = new GrpcChannel(controlHost, controlPort);
+                    serverIp.setText(controlHost);
+                    serverPort.setText(String.valueOf(controlPort));
+                    ManagedChannel channel = controlChannel.getChannel();
+                    ControlClient controlClient = new ControlClient(channel);
+                    controlChannel.startHeartbeat();
+                    controlChannel.setConnectSuccessHandler(() -> {
+                        String ip = controlClient.registerDmClient(port);
+                        appendLog("终端服务注册成功。终端注册ip:{}", ip);
+                    });
+                    controlChannel.setConnectFailHandler(() -> {
+                        Platform.runLater(() -> {
+                            appendLog("终端服务注册失败。重新注册中。");
+                        });
+                    });
+                } catch (Exception e) {
+                    log.error(e);
+                    appendLog("启动异常：{}", e.getMessage());
+                }
             });
         } catch (Exception e) {
             log.error(e);
+        }
+    }
+
+    private void appendLog(CharSequence template, Object... params) {
+        Platform.runLater(() -> {
+            String log = StrUtil.format(template + StrUtil.LF, params);
+            logTextArea.appendText(log);
+        });
+    }
+
+    public void test(ActionEvent actionEvent) {
+        try {
+            appendLog("当前可执行文件路径：{}", System.getProperty("jpackage.app-path"));
+            Main.restart();
+        } catch (Exception e) {
         }
     }
 }

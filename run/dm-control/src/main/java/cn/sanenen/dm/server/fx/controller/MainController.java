@@ -4,6 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Singleton;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.common.Constant;
+import cn.sanenen.dm.common.GameStatus;
 import cn.sanenen.dm.server.common.StageCache;
 import cn.sanenen.dm.server.fx.model.entity.TableData;
 import javafx.event.ActionEvent;
@@ -53,11 +54,9 @@ public class MainController implements Initializable {
             private final Button button = new Button("操作");
 
             {
-                button.setDisable(false);
                 button.setOnAction(event -> {
                     Stage parentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                     TableData tableData = getTableView().getItems().get(getIndex());
-                    tableData.setButton(button);
                     try {
                         handleAction(tableData, parentStage);
                     } catch (IOException e) {
@@ -79,7 +78,10 @@ public class MainController implements Initializable {
 
     private void handleAction(TableData data, Stage parentStage) throws IOException {
         Stage terminalStage = StageCache.terminalStage;
-
+        if (GameStatus.grpc_error.desc.equals(data.getStatus())) {
+            log.info("连接断开，正在重新连接...");
+            return;
+        }
         TerminalOperateController terminalOperateController = Singleton.get(TerminalOperateController.class);
         terminalOperateController.setTableData(data);
         terminalStage.setX(parentStage.getX() + 50);

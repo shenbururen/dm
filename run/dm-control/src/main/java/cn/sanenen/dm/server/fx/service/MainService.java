@@ -36,7 +36,6 @@ public class MainService {
         terminalData.setStatus(status.desc);
         if (status == GameStatus.grpc_error) {
             Platform.runLater(() -> {
-                terminalData.getButton().setDisable(true);
                 TerminalOperateController terminalOperateController = Singleton.get(TerminalOperateController.class);
                 if (ip.equals(terminalOperateController.getTableData().getIp())) {
                     StageCache.terminalStage.close();

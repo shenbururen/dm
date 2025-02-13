@@ -2,9 +2,12 @@ package cn.sanenen.dm.server.fx.service;
 
 import cn.hutool.core.lang.Singleton;
 import cn.sanenen.dm.common.GameStatus;
+import cn.sanenen.dm.server.common.StageCache;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.fx.controller.MainController;
+import cn.sanenen.dm.server.fx.controller.TerminalOperateController;
 import cn.sanenen.dm.server.fx.model.entity.TableData;
+import javafx.application.Platform;
 
 /**
  * @author sun
@@ -14,8 +17,8 @@ public class MainService {
     public void registerDmTerminal(String ip, int port) throws InterruptedException {
         MainController mainController = Singleton.get(MainController.class);
 
-        boolean isNew = TerminalCache.cacheTerminalServer(ip, port);
-        
+        boolean isNew = TerminalCache.cacheTerminal(ip, port);
+
         if (isNew) {
             TerminalService terminalService = Singleton.get(TerminalService.class);
             terminalService.uploadFiles(ip);
@@ -24,13 +27,22 @@ public class MainService {
             tableData.setPort(port);
             mainController.addDmTerminal(tableData);
         }
-        
+
     }
 
     public void setTerminalStatus(String ip, GameStatus status) {
         MainController mainController = Singleton.get(MainController.class);
         TableData terminalData = mainController.getDmTerminal(ip);
         terminalData.setStatus(status.desc);
+        if (status == GameStatus.grpc_error) {
+            Platform.runLater(() -> {
+                terminalData.getButton().setDisable(true);
+                TerminalOperateController terminalOperateController = Singleton.get(TerminalOperateController.class);
+                if (ip.equals(terminalOperateController.getTableData().getIp())) {
+                    StageCache.terminalStage.close();
+                }
+            });
+        }
     }
 
     public void setTerminalVersion(String ip, String dmVersion) {

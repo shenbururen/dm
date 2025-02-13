@@ -55,6 +55,7 @@ public class DmCallServiceImpl extends DmCallServiceGrpc.DmCallServiceImplBase {
                     .setKey(entry.getKey()).setValue(String.valueOf(entry.getValue().getValue())).build());
             entry.getValue().clear();
         }
+        log.info(MessageUtil.printJson(resultBuilder));
         responseObserver.onNext(resultBuilder.build());
         responseObserver.onCompleted();
     }

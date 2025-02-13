@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -50,14 +49,15 @@ public class MainController implements Initializable {
         col_version.setCellValueFactory(param -> param.getValue().versionProperty());
         col_status.setCellValueFactory(param -> param.getValue().statusProperty());
 
-        col_ip.setCellFactory(TextFieldTableCell.forTableColumn());
         col_action.setCellFactory(param -> new TableCell<>() {
             private final Button button = new Button("操作");
 
             {
+                button.setDisable(false);
                 button.setOnAction(event -> {
                     Stage parentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                     TableData tableData = getTableView().getItems().get(getIndex());
+                    tableData.setButton(button);
                     try {
                         handleAction(tableData, parentStage);
                     } catch (IOException e) {
@@ -65,7 +65,6 @@ public class MainController implements Initializable {
                     }
                 });
             }
-
             @Override
             protected void updateItem(Object item, boolean empty) {
                 super.updateItem(item, empty);

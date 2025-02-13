@@ -4,6 +4,7 @@ import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.lang.Singleton;
 import cn.hutool.cron.CronUtil;
 import cn.hutool.log.Log;
+import cn.sanenen.dm.server.common.StageCache;
 import cn.sanenen.dm.server.grpc.ServerStart;
 import com.google.errorprone.annotations.Keep;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +55,7 @@ public class Main extends javafx.application.Application{
             serverStart.shutdown();
             System.exit(0);
         });
+        StageCache.initTerminalStage(primaryStage);
         primaryStage.show();
     }
 }

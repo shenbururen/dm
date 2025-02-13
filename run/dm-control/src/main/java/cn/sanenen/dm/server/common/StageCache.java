@@ -17,9 +17,9 @@ import java.io.IOException;
  **/
 public class StageCache {
     private static final Log log = Log.get();
-    public static final Stage terminalStage;
-    
-    static {
+    public static Stage terminalStage;
+
+    public static void initTerminalStage(Stage parentStage) {
         FXMLLoader fxmlLoader = new FXMLLoader(ResourceUtil.getResource("fxml/terminal_operate.fxml"));
         fxmlLoader.setControllerFactory(param -> {
             //将所有controller生成并放入单例工具类中，方便项目其他地方使用。
@@ -36,6 +36,7 @@ public class StageCache {
         }
         Scene scene = new Scene(root);
         terminalStage = new Stage();
+        terminalStage.initOwner(parentStage);
         terminalStage.initModality(Modality.APPLICATION_MODAL);
         terminalStage.setScene(scene);
         terminalStage.setTitle("terminal_operate");

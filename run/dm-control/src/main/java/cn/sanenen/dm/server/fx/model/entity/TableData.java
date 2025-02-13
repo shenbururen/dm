@@ -2,6 +2,7 @@ package cn.sanenen.dm.server.fx.model.entity;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Button;
 
 import java.util.Objects;
 
@@ -13,7 +14,16 @@ public class TableData {
     private SimpleIntegerProperty port = new SimpleIntegerProperty();
     private SimpleStringProperty version = new SimpleStringProperty();
     private SimpleStringProperty status = new SimpleStringProperty();
+    
+    private Button button;
 
+    public Button getButton() {
+        return button;
+    }
+
+    public void setButton(Button button) {
+        this.button = button;
+    }
 
     @Override
     public boolean equals(Object o) {

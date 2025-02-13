@@ -21,6 +21,12 @@ public class GameStart {
     public static GameStart getInstance(String ip) {
         return cache.computeIfAbsent(ip, k -> new GameStart(ip));
     }
+    public static void stopGame(String ip) {
+        GameStart gameStart = cache.remove(ip);
+        if (gameStart != null) {
+            gameStart.isStart = false;
+        }
+    }
 
     private final TerminalContext terminalContext;
     private final GameService gameService;

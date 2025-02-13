@@ -46,6 +46,7 @@ public class Main extends javafx.application.Application{
         primaryStage.setTitle("DM Control");
         primaryStage.getIcons().add(new Image("icon.png"));
         primaryStage.sizeToScene();
+        primaryStage.setResizable(false);
         primaryStage.setOnCloseRequest(event -> {
             if (CronUtil.getScheduler().isStarted()) {
                 CronUtil.stop();

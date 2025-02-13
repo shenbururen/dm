@@ -41,5 +41,6 @@ public class StageCache {
         terminalStage.setTitle("terminal_operate");
         terminalStage.getIcons().add(new Image("icon.png"));
         terminalStage.sizeToScene();
+        terminalStage.setResizable(false);
     }
 }

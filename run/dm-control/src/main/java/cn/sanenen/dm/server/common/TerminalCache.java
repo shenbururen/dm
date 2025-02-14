@@ -14,7 +14,7 @@ public class TerminalCache {
     public static Map<String, TerminalContext> terminalMap = new ConcurrentHashMap<>();
     public static Map<String, TerminalContext> terminalIpMap = new ConcurrentHashMap<>();
 
-    public static boolean cacheTerminal(String ip, int port) throws InterruptedException {
+    public static boolean cacheTerminal(String ip, int port) {
         String key = StrUtil.format("{}:{}", ip, port);
         if (terminalMap.containsKey(key)) {
             log.trace("{} 终端服务已存在", key);
@@ -32,7 +32,7 @@ public class TerminalCache {
         return terminalIpMap.get(ip);
     }
     
-    public static void removeTerminal(String ip) throws InterruptedException {
+    public static void removeTerminal(String ip) {
         if (terminalIpMap.containsKey(ip)) {
             TerminalContext old = terminalIpMap.get(ip);
             String oldKey = StrUtil.format("{}:{}", ip, old.port);

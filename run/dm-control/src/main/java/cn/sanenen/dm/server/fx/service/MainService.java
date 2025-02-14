@@ -1,7 +1,7 @@
 package cn.sanenen.dm.server.fx.service;
 
 import cn.hutool.core.lang.Singleton;
-import cn.sanenen.dm.common.GameStatus;
+import cn.sanenen.dm.common.TerminalStatus;
 import cn.sanenen.dm.server.common.StageCache;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.fx.controller.MainController;
@@ -30,11 +30,11 @@ public class MainService {
 
     }
 
-    public void setTerminalStatus(String ip, GameStatus status) {
+    public void setTerminalStatus(String ip, TerminalStatus status) {
         MainController mainController = Singleton.get(MainController.class);
         TableData terminalData = mainController.getDmTerminal(ip);
-        terminalData.setStatus(status.desc);
-        if (status == GameStatus.grpc_error) {
+        terminalData.setStatusEnum(status);
+        if (status.code <= TerminalStatus.error.code) {
             Platform.runLater(() -> {
                 TerminalOperateController terminalOperateController = Singleton.get(TerminalOperateController.class);
                 if (ip.equals(terminalOperateController.getTableData().getIp())) {

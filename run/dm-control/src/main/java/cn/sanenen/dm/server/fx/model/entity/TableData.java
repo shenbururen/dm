@@ -1,28 +1,26 @@
 package cn.sanenen.dm.server.fx.model.entity;
 
+import cn.sanenen.dm.common.TerminalStatus;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.control.Button;
+import lombok.Data;
 
 import java.util.Objects;
 
 /**
  * @author sun
  **/
+@Data
 public class TableData {
     private SimpleStringProperty ip = new SimpleStringProperty();
     private SimpleIntegerProperty port = new SimpleIntegerProperty();
     private SimpleStringProperty version = new SimpleStringProperty();
     private SimpleStringProperty status = new SimpleStringProperty();
-    
-    private Button button;
+    private TerminalStatus statusEnum = TerminalStatus.init;
 
-    public Button getButton() {
-        return button;
-    }
-
-    public void setButton(Button button) {
-        this.button = button;
+    public void setStatusEnum(TerminalStatus statusEnum) {
+        this.statusEnum = statusEnum;
+        setStatus(this.statusEnum.desc);
     }
 
     @Override

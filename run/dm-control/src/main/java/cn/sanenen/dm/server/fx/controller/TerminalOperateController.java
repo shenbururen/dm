@@ -3,7 +3,10 @@ package cn.sanenen.dm.server.fx.controller;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Singleton;
 import cn.hutool.core.util.StrUtil;
+import cn.sanenen.dm.common.TerminalStatus;
 import cn.sanenen.dm.common.fx.FxSub;
+import cn.sanenen.dm.server.common.TerminalCache;
+import cn.sanenen.dm.server.common.TerminalContext;
 import cn.sanenen.dm.server.fx.model.entity.TableData;
 import cn.sanenen.dm.server.fx.service.TerminalService;
 import cn.sanenen.dm.server.game.GameStart;
@@ -101,7 +104,8 @@ public class TerminalOperateController implements Initializable {
         Platform.runLater(() -> {
             TerminalService terminalService = Singleton.get(TerminalService.class);
             terminalService.restart(tableData.getIp());
-            tableData.setStatus("重启中");
+            TerminalContext terminalContext = TerminalCache.getTerminalContext(tableData.getIp());
+            terminalContext.connectFailProcess(TerminalStatus.restart);
             appendLog("重启中");
         });
     }

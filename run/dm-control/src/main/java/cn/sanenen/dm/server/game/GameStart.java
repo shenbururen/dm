@@ -2,7 +2,7 @@ package cn.sanenen.dm.server.game;
 
 import cn.hutool.core.lang.Singleton;
 import cn.hutool.log.Log;
-import cn.sanenen.dm.common.GameStatus;
+import cn.sanenen.dm.common.TerminalStatus;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.common.TerminalContext;
 import cn.sanenen.dm.server.fx.service.MainService;
@@ -50,7 +50,7 @@ public class GameStart {
             isStart = true;
         }
         
-        GameStatus status = gameService.identifyTheCurrentStatusOfTheTerminal(ip);
+        TerminalStatus status = gameService.identifyTheCurrentStatusOfTheTerminal(ip);
         String dmVersion = terminalContext.dmMain.Ver();
 
         mainService.setTerminalStatus(ip, status);

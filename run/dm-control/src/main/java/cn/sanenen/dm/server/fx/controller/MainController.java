@@ -4,7 +4,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Singleton;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.common.Constant;
-import cn.sanenen.dm.common.GameStatus;
+import cn.sanenen.dm.common.TerminalStatus;
 import cn.sanenen.dm.server.common.StageCache;
 import cn.sanenen.dm.server.fx.model.entity.TableData;
 import javafx.event.ActionEvent;
@@ -78,8 +78,8 @@ public class MainController implements Initializable {
 
     private void handleAction(TableData data, Stage parentStage) throws IOException {
         Stage terminalStage = StageCache.terminalStage;
-        if (GameStatus.grpc_error.desc.equals(data.getStatus())) {
-            log.info("连接断开，正在重新连接...");
+        if (data.getStatusEnum().code <= TerminalStatus.error.code) {
+            log.info("连接异常，正在重新连接...");
             return;
         }
         TerminalOperateController terminalOperateController = Singleton.get(TerminalOperateController.class);

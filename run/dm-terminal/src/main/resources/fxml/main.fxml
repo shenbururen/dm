@@ -9,7 +9,7 @@
       <Label layoutX="14.0" layoutY="16.0" text="control:" />
       <TextField fx:id="serverIp" editable="false" layoutX="62.0" layoutY="11.0" prefHeight="23.0" prefWidth="104.0" text="control.ip" />
       <TextField fx:id="serverPort" editable="false" layoutX="167.0" layoutY="11.0" prefHeight="23.0" prefWidth="53.0" text="port" />
-      <Button layoutX="16.0" layoutY="323.0" mnemonicParsing="false" onAction="#test" text="测试" />
+      <Button layoutX="16.0" layoutY="323.0" mnemonicParsing="false" onAction="#test" text="重启" />
       <Label layoutX="78.0" layoutY="45.0" text="终端注册IP：" />
       <TextField fx:id="registerIp" layoutX="154.0" layoutY="41.0" prefHeight="23.0" prefWidth="135.0" />
       <Label layoutX="293.0" layoutY="45.0" prefHeight="15.0" prefWidth="60.0" text="注册端口：" />

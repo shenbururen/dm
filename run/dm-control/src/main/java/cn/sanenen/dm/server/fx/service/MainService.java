@@ -37,7 +37,7 @@ public class MainService {
         if (status.code <= TerminalStatus.error.code) {
             Platform.runLater(() -> {
                 TerminalOperateController terminalOperateController = Singleton.get(TerminalOperateController.class);
-                if (ip.equals(terminalOperateController.getTableData().getIp())) {
+                if (StageCache.terminalStage.isShowing() && ip.equals(terminalOperateController.getTableData().getIp())) {
                     StageCache.terminalStage.close();
                 }
             });

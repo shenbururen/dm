@@ -18,3 +18,11 @@
 
 # 终端项目主界面
 ![image](https://github.com/user-attachments/assets/5dfd5788-d878-4abb-8167-8091c6f9755f)
+
+
+# 常见问题
+## 如何配置相关地址和端口
+dm-control项目resources下的dm.setting 配置中控启动端口。
+dm-terminal项目resources下的dm.setting 配置中控连接地址及端口。默认control.uuu 可改为具体ip，也可以自行在hosts中配置下。
+## 资源文件存储目录
+dm-control项目resources下的files下。dm插件初始化后会自动获取终端的资源目录并setpath，所以执行dm命令时使用files的相对路径即可。

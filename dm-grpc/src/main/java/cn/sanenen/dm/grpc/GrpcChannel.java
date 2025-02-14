@@ -69,11 +69,13 @@ public class GrpcChannel {
         }
     }
 
-    public void shutdown() throws InterruptedException {
-        if (channel != null) {
+    public synchronized void shutdown() throws InterruptedException {
+        if (channel != null && !channel.isShutdown() && !channel.isTerminated()) {
             channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
         }
-        scheduler.shutdown();
+        if (!scheduler.isShutdown()) {
+            scheduler.shutdown();
+        }
     }
 
 }

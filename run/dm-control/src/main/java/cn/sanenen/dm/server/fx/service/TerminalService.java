@@ -5,6 +5,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.base.DmApi;
 import cn.sanenen.dm.common.Constant;
+import cn.sanenen.dm.common.TerminalStatus;
 import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.common.TerminalContext;
@@ -84,5 +85,6 @@ public class TerminalService {
     public void restart(String ip) {
         TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
         terminalContext.baseClient.restart();
+        terminalContext.connectFailProcess(TerminalStatus.restart);
     }
 }

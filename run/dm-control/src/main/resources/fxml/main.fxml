@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.sanenen.dm.server.fx.controller.MainController">
-   <children>
-      <TableView fx:id="tableView" layoutX="29.0" layoutY="59.0" prefHeight="311.0" prefWidth="492.0">
-        <columns>
-          <TableColumn fx:id="col_ip" prefWidth="120" text="ip" style="-fx-alignment: center;"/>
-          <TableColumn fx:id="col_port" prefWidth="60" text="port" style="-fx-alignment: center;"/>
-          <TableColumn fx:id="col_version" prefWidth="100" text="大漠版本" style="-fx-alignment: center;"/>
-          <TableColumn fx:id="col_status" prefWidth="81" text="状态" style="-fx-alignment: center;"/>
-            <TableColumn fx:id="col_action" prefWidth="81" text="操作" style="-fx-alignment: center;"/>
-        </columns>
-      </TableView>
-      <Button layoutX="340.0" layoutY="14.0" mnemonicParsing="false" onAction="#addData" text="Button" />
-   </children>
+    <children>
+        <TableView fx:id="tableView" editable="true" layoutX="27.0" layoutY="59.0" prefHeight="317.0" prefWidth="549.0">
+            <columns>
+                <TableColumn fx:id="col_select" prefWidth="30.0" style="-fx-alignment: center;" text="" />
+                <TableColumn fx:id="col_ip" prefWidth="130.0" style="-fx-alignment: center;" text="ip" />
+                <TableColumn fx:id="col_port" prefWidth="64" style="-fx-alignment: center;" text="port" />
+                <TableColumn fx:id="col_version" prefWidth="82.0" style="-fx-alignment: center;" text="大漠版本" />
+                <TableColumn fx:id="col_status" prefWidth="84.0" style="-fx-alignment: center;" text="状态" />
+                <TableColumn fx:id="col_action" prefWidth="67" style="-fx-alignment: center;" text="查看" />
+                <TableColumn fx:id="col_restart" prefWidth="68" style="-fx-alignment: center;" text="重启" />
+            </columns>
+        </TableView>
+        <Button layoutX="150.0" layoutY="22.0" mnemonicParsing="false" onAction="#addData" text="批量操作" />
+        <CheckBox layoutX="49.0" layoutY="25.0" mnemonicParsing="false" text="CheckBox" />
+    </children>
 </AnchorPane>

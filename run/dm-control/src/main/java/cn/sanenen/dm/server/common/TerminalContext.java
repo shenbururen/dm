@@ -71,7 +71,7 @@ public class TerminalContext {
     public void shutdown() {
         try {
             grpcClient.shutdown();
-            connectFailProcess(TerminalStatus.error);
+            connectFailProcess(TerminalStatus.del_grpc);
         } catch (Exception e) {
             log.error(e);
         }

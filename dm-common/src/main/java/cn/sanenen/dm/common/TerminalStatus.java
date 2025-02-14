@@ -10,6 +10,7 @@ public enum TerminalStatus {
     error(-90, "异常"),
     restart(-91, "重新启动"),
     grpc_error(-92, "连接断开"),
+    del_grpc(-93, "移除旧终端"),
     ;
 
     public final int code;

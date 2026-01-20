@@ -5,7 +5,6 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.client.Main;
 import cn.sanenen.dm.client.common.DmSetting;
-import cn.sanenen.dm.client.grpc.ServerStart;
 import cn.sanenen.dm.client.grpc.client.ControlClient;
 import cn.sanenen.dm.common.fx.FxSub;
 import cn.sanenen.dm.grpc.GrpcChannel;
@@ -28,9 +27,6 @@ public class MainController implements Initializable {
     public TextArea logTextArea;
     public TextField serverPort;
     public TextField registerIp;
-    public TextField registerPort;
-
-    private static final ServerStart serverStart = new ServerStart();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -39,13 +35,10 @@ public class MainController implements Initializable {
             Platform.runLater(() -> {
                 try {
                     appendLog("启动中...");
-                    int port = serverStart.start();
-                    registerPort.setText(String.valueOf(port));
-                    appendLog("终端服务启动完成，端口号{}", port);
 
                     String controlHost = DmSetting.getControlHost();
                     int controlPort = DmSetting.getControlPort();
-                    appendLog("终端服务注册中...中控{}:{}", controlHost, port);
+                    appendLog("终端服务注册中...中控{}:{}", controlHost, controlPort);
                     GrpcChannel controlChannel = new GrpcChannel(controlHost, controlPort);
                     serverIp.setText(controlHost);
                     serverPort.setText(String.valueOf(controlPort));
@@ -53,9 +46,8 @@ public class MainController implements Initializable {
                     ControlClient controlClient = new ControlClient(channel);
                     controlChannel.startHeartbeat();
                     controlChannel.setConnectSuccessHandler(() -> {
-                        String ip = controlClient.registerDmClient(port);
-                        registerIp.setText(ip);
-                        appendLog("终端服务注册成功。终端注册ip:{}", ip);
+                        controlClient.registerSelf();
+                        appendLog("终端服务注册成功。");
                     });
                     controlChannel.setConnectFailHandler(() -> {
                         Platform.runLater(() -> {

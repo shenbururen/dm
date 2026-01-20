@@ -1,2 +1,4 @@
-controlHost = control.uuu
+controlHost = 127.0.0.1
 controlPort = 50051
+id = 10086y
+name = 10086n

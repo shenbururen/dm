@@ -1,0 +1,101 @@
+syntax = "proto3";
+//定义java原生的方法服务
+
+option java_multiple_files = false;
+option java_package = "cn.sanenen.dm.grpc.pkg.control";
+option java_outer_classname = "ControlServerPg";
+
+message ClientMessage {
+  string message_id = 5;
+  oneof message {
+    RegisterDmTerminalRequest registerDmTerminalRequest = 10;
+    DmCallResponse dmCallResponse = 20;
+    //other message
+    GetCurrentPIDResponse getCurrentPIDResponse = 30;
+    UploadFileResponse uploadFileResponse = 40;
+    GetHasFilesResponse getHasFilesResponse = 50;
+    DelAllFilesResponse delAllFilesResponse = 60;
+    RestartResponse restartResponse = 70;
+  }
+}
+message ServerMessage {
+  string message_id = 5;
+  oneof message {
+    RegisterDmTerminalResponse registerDmTerminalResponse = 10;
+    DmCallRequest dmCallRequest = 20;
+    //other message
+    GetCurrentPIDRequest getCurrentPIDRequest = 30;
+    UploadFileRequest uploadFileRequest = 40;
+    GetHasFilesRequest getHasFilesRequest = 50;
+    DelAllFilesRequest delAllFilesRequest = 60;
+    RestartRequest restartRequest = 70;
+  }
+}
+
+// 定义请求和响应消息
+message GetCurrentPIDRequest {
+}
+message GetCurrentPIDResponse {
+  int64 pid = 1;
+}
+
+message UploadFileRequest {
+  string fileName = 1;
+  string filePath = 2;
+  bytes fileBytes = 4;
+}
+message UploadFileResponse {
+}
+
+message GetHasFilesRequest {
+}
+message GetHasFilesResponse {
+  message HasFile {
+    string fileName = 1;
+    string filePath = 2;
+    int64 fileSize = 3;
+  };
+  repeated HasFile hasFiles = 1;
+}
+
+message DelAllFilesRequest {
+}
+message DelAllFilesResponse {
+}
+message RestartRequest {
+}
+message RestartResponse {
+}
+
+
+
+
+message RegisterDmTerminalRequest {
+  string terminal_id = 10; // 终端id
+  string terminal_name = 20; // 终端名称
+  string terminal_ip = 30; // 终端ip
+}
+message RegisterDmTerminalResponse {
+  bool Success = 10;
+  string Result = 20;
+}
+
+// 键值对消息，用于表示参数或结果
+message KeyValuePair {
+  string key = 10;
+  string value = 20;
+}
+
+message DmCallRequest {
+  string dm_instance_id = 10; // 大漠对象id，不存在则创建新的
+  string method_name = 20; // 要调用的方法名
+  repeated KeyValuePair params = 30; // 不定个数的参数
+}
+
+message DmCallResponse {
+  repeated KeyValuePair results = 10; // 不定个数的响应结果
+}
+// 定义服务
+service ControlServerService {
+  rpc RegisterDmTerminal(stream ClientMessage)  returns  (stream  ServerMessage);
+}

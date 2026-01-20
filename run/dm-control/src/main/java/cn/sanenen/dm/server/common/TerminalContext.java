@@ -2,12 +2,11 @@ package cn.sanenen.dm.server.common;
 
 import cn.hutool.core.lang.Singleton;
 import cn.hutool.log.Log;
-import cn.sanenen.dm.base.DmApi;
+import cn.sanenen.dm.base.GrpcDmApi;
 import cn.sanenen.dm.common.TerminalStatus;
-import cn.sanenen.dm.grpc.GrpcChannel;
-import cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallServiceGrpc;
 import cn.sanenen.dm.server.fx.service.MainService;
 import cn.sanenen.dm.server.game.GameStart;
+import cn.sanenen.dm.server.grpc.GrpcTerminal;
 import cn.sanenen.dm.server.grpc.client.BaseClient;
 import cn.sanenen.dm.server.grpc.client.DmApiClientFactory;
 
@@ -17,41 +16,30 @@ import cn.sanenen.dm.server.grpc.client.DmApiClientFactory;
 public class TerminalContext {
     private static final Log log = Log.get();
 
-    public final GrpcChannel grpcClient;
-    private final DmCallServiceGrpc.DmCallServiceBlockingStub dmStub;
+    public final GrpcTerminal grpcTerminal;
 
+    public final String id;
     public final String ip;
-    public final int port;
 
-    public final BaseClient baseClient;
     /**
      * 主线程 大漠对象
      */
-    public final DmApi dmMain;
+    public final GrpcDmApi dmMain;
     /**
      * 监控线程 大漠对象
      */
-    public final DmApi dmMonitor;
+    public final GrpcDmApi dmMonitor;
+    
+    public final BaseClient baseClient;
 
 
-    public TerminalContext(String ip, int port) {
-        this.ip = ip;
-        this.port = port;
-        grpcClient = new GrpcChannel(ip, port);
-        grpcClient.setConnectFailHandler(() -> {
-            log.info("终端grpc连接失败，释放资源：{}", ip);
-            try {
-                connectFailProcess(TerminalStatus.grpc_error);
-            } catch (Exception e) {
-                log.error(e);
-            }
-        });
-        grpcClient.startHeartbeat();
-        dmStub = DmCallServiceGrpc.newBlockingStub(grpcClient.getChannel());
-        dmMain = DmApiClientFactory.newDmApi(dmStub, "dm.main");
-        dmMonitor = DmApiClientFactory.newDmApi(dmStub, "dm.monitor");
-
-        baseClient = new BaseClient(grpcClient.getChannel());
+    public TerminalContext(GrpcTerminal grpcTerminal) {
+        this.grpcTerminal = grpcTerminal;
+        this.ip = grpcTerminal.getTerminalIp();
+        this.id = grpcTerminal.getTerminalId();
+        this.dmMain = DmApiClientFactory.newDmApi(this.grpcTerminal, "dm.main");
+        this.dmMonitor = DmApiClientFactory.newDmApi(this.grpcTerminal, "dm.monitor");
+        this.baseClient = new BaseClient(this.grpcTerminal);
     }
 
     public void connectFailProcess(TerminalStatus status) {
@@ -70,7 +58,7 @@ public class TerminalContext {
     
     public void shutdown() {
         try {
-            grpcClient.shutdown();
+            grpcTerminal.shutdown();
             connectFailProcess(TerminalStatus.del_grpc);
         } catch (Exception e) {
             log.error(e);

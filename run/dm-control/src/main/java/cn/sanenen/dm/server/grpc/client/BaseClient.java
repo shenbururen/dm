@@ -3,11 +3,9 @@ package cn.sanenen.dm.server.grpc.client;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.log.Log;
 import cn.sanenen.dm.common.Constant;
-import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg;
-import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaServiceGrpc;
+import cn.sanenen.dm.grpc.pkg.control.ControlServerPg;
+import cn.sanenen.dm.server.grpc.GrpcTerminal;
 import com.google.protobuf.ByteString;
-import com.google.protobuf.Empty;
-import io.grpc.Channel;
 
 import java.io.File;
 import java.util.List;
@@ -18,39 +16,45 @@ import java.util.List;
 @SuppressWarnings("all")
 public class BaseClient {
     private static final Log log = Log.get();
-    final BaseJavaServiceGrpc.BaseJavaServiceBlockingStub baseStub;
+    final GrpcTerminal grpcTerminal;
 
-    public BaseClient(Channel channel) {
-        baseStub = BaseJavaServiceGrpc.newBlockingStub(channel);
+    public BaseClient(GrpcTerminal grpcTerminal) {
+        this.grpcTerminal = grpcTerminal;
     }
 
     public long getCurrentPID() {
-        BaseJavaPg.getCurrentPIDResponse response = baseStub.getCurrentPID(Empty.newBuilder().build());
-        return response.getPid();
+        ControlServerPg.ClientMessage clientMessage = grpcTerminal.sendServerMessage(ControlServerPg.ServerMessage.newBuilder()
+                .setGetCurrentPIDRequest(ControlServerPg.GetCurrentPIDRequest.newBuilder().build()));
+        return clientMessage.getGetCurrentPIDResponse().getPid();
     }
-    
-    public List<BaseJavaPg.getHasFilesResponse.HasFile> getHasFiles() {
-        BaseJavaPg.getHasFilesResponse response = baseStub.getHasFiles(Empty.newBuilder().build());
-        return response.getHasFilesList();
+
+    public List<ControlServerPg.GetHasFilesResponse.HasFile> getHasFiles() {
+        ControlServerPg.ClientMessage clientMessage = grpcTerminal.sendServerMessage(ControlServerPg.ServerMessage.newBuilder()
+                .setGetHasFilesRequest(ControlServerPg.GetHasFilesRequest.newBuilder().build()));
+        return clientMessage.getGetHasFilesResponse().getHasFilesList();
     }
-    
+
     public void delAllFiles() {
-        baseStub.delAllFiles(Empty.newBuilder().build());
+        grpcTerminal.sendServerMessage(ControlServerPg.ServerMessage.newBuilder()
+                .setDelAllFilesRequest(ControlServerPg.DelAllFilesRequest.newBuilder().build()));
+        log.info("删除所有文件");
     }
-    
+
     public void uploadFile(File file) {
         File parent = FileUtil.file(Constant.DM_FILES);
         String filePath = FileUtil.subPath(parent.getPath(), file);
-        BaseJavaPg.uploadFileRequest request = BaseJavaPg.uploadFileRequest.newBuilder()
-                .setFilePath(filePath)
-                .setFileName(FileUtil.getName(file))
-                .setFileBytes(ByteString.copyFrom(FileUtil.readBytes(file)))
-                .build();
+        grpcTerminal.sendServerMessage(ControlServerPg.ServerMessage.newBuilder()
+                .setUploadFileRequest(ControlServerPg.UploadFileRequest.newBuilder()
+                        .setFilePath(filePath)
+                        .setFileName(FileUtil.getName(file))
+                        .setFileBytes(ByteString.copyFrom(FileUtil.readBytes(file)))
+                        .build())
+        );
         log.info("上传文件：{}", filePath);
-        baseStub.uploadFile(request);
     }
-    
+
     public void restart() {
-        baseStub.restart(Empty.newBuilder().build());
+        grpcTerminal.sendServerMessage(ControlServerPg.ServerMessage.newBuilder()
+                .setRestartRequest(ControlServerPg.RestartRequest.newBuilder().build()));
     }
 }

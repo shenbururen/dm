@@ -2,6 +2,7 @@ package cn.sanenen.dm.server.grpc;
 
 import cn.hutool.log.Log;
 import cn.sanenen.dm.server.common.DmSetting;
+import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.grpc.service.ServerServiceImpl;
 import io.grpc.*;
 
@@ -41,7 +42,7 @@ public class ServerStart {
             @Override
             public void run() {
                 try {
-                    ServerStart.this.stop();
+                    ServerStart.this.shutdown();
                 } catch (InterruptedException e) {
                     e.printStackTrace(System.err);
                 }
@@ -49,13 +50,10 @@ public class ServerStart {
         });
     }
 
-    private void stop() throws InterruptedException {
+    private void shutdown() throws InterruptedException {
+        TerminalCache.shoutdownAllTerminal();
         if (server != null) {
-            server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
+            server.shutdown().awaitTermination(10, TimeUnit.SECONDS);
         }
-    }
-
-    public void shutdown() {
-        server.shutdown();
     }
 }

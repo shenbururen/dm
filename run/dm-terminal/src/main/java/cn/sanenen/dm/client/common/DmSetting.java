@@ -19,4 +19,11 @@ public class DmSetting {
         return setting.getInt("controlPort");
     }
     
+    public static String getId() {
+        return setting.get("id");
+    }
+    public static String getName() {
+        return setting.get("name");
+    }
+    
 }

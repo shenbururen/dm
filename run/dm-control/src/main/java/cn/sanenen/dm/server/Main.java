@@ -52,7 +52,6 @@ public class Main extends javafx.application.Application{
             if (CronUtil.getScheduler().isStarted()) {
                 CronUtil.stop();
             }
-            serverStart.shutdown();
             System.exit(0);
         });
         StageCache.initTerminalStage(primaryStage);

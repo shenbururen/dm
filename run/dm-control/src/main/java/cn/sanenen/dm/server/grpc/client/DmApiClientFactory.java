@@ -3,9 +3,9 @@ package cn.sanenen.dm.server.grpc.client;
 import cn.hutool.aop.ProxyUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.ClassUtil;
-import cn.sanenen.dm.base.DmApi;
-import cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallPg;
-import cn.sanenen.dm.grpc.pkg.terminal.dm.DmCallServiceGrpc;
+import cn.sanenen.dm.base.GrpcDmApi;
+import cn.sanenen.dm.grpc.pkg.control.ControlServerPg;
+import cn.sanenen.dm.server.grpc.GrpcTerminal;
 import com.sun.jna.platform.win32.Variant;
 
 import java.util.ArrayList;
@@ -23,10 +23,13 @@ public interface DmApiClientFactory {
      *
      * @return DM 接口代理与服务端大漠对象一一对应。
      */
-    static DmApi newDmApi(final DmCallServiceGrpc.DmCallServiceBlockingStub dmStub, final String dmInstanceId) {
+    static GrpcDmApi newDmApi(final GrpcTerminal grpcTerminal, final String dmInstanceId) {
         return ProxyUtil.newProxyInstance((proxy, method, args) -> {
+            if (Object.class.equals(method.getDeclaringClass())) {
+                return method.invoke(proxy, args);
+            }
             String methodName = method.getName();
-            List<DmCallPg.KeyValuePair> params = new ArrayList<>();
+            List<ControlServerPg.KeyValuePair> params = new ArrayList<>();
             if (args != null) {
                 // 收集参数
                 for (Object arg : args) {
@@ -37,31 +40,31 @@ public interface DmApiClientFactory {
                     } else {
                         value = arg.toString();
                     }
-                    params.add(DmCallPg.KeyValuePair.newBuilder()
+                    params.add(ControlServerPg.KeyValuePair.newBuilder()
                             .setKey(key)
                             .setValue(value)
                             .build());
                 }
             }
             // 构建 gRPC 请求
-            DmCallPg.DmCallRequest request = DmCallPg.DmCallRequest.newBuilder()
+            ControlServerPg.DmCallRequest request = ControlServerPg.DmCallRequest.newBuilder()
                     .setDmInstanceId(dmInstanceId)
                     .setMethodName(methodName)
                     .addAllParams(params)
                     .build();
 
             // 调用 gRPC 通用方法
-            DmCallPg.DmCallResponse response = dmStub.call(request);
-            List<DmCallPg.KeyValuePair> resultsList = response.getResultsList();
+            ControlServerPg.DmCallResponse response = grpcTerminal.callDm(request);
+            List<ControlServerPg.KeyValuePair> resultsList = response.getResultsList();
             for (int i = 1; i < resultsList.size(); i++) {
-                DmCallPg.KeyValuePair keyValuePair = resultsList.get(i);
+                ControlServerPg.KeyValuePair keyValuePair = resultsList.get(i);
                 Integer anInt = Convert.toInt(keyValuePair.getKey());
                 assert args != null;
                 Variant.VARIANT arg = (Variant.VARIANT) args[anInt];
                 arg.setValue(Variant.VT_INT, Convert.toInt(keyValuePair.getValue()));
             }
             return Convert.convert(method.getReturnType(), resultsList.getFirst().getValue());
-        }, DmApi.class);
+        }, GrpcDmApi.class);
     }
 
 }

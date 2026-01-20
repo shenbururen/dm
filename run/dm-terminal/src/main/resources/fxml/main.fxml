@@ -12,7 +12,5 @@
       <Button layoutX="16.0" layoutY="323.0" mnemonicParsing="false" onAction="#test" text="重启" />
       <Label layoutX="78.0" layoutY="45.0" text="终端注册IP：" />
       <TextField fx:id="registerIp" layoutX="154.0" layoutY="41.0" prefHeight="23.0" prefWidth="135.0" />
-      <Label layoutX="293.0" layoutY="45.0" prefHeight="15.0" prefWidth="60.0" text="注册端口：" />
-      <TextField fx:id="registerPort" editable="false" layoutX="353.0" layoutY="41.0" prefHeight="23.0" prefWidth="60.0" text="30000" />
    </children>
 </AnchorPane>

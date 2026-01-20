@@ -6,7 +6,7 @@ import cn.hutool.log.Log;
 import cn.sanenen.dm.base.DmApi;
 import cn.sanenen.dm.common.Constant;
 import cn.sanenen.dm.common.TerminalStatus;
-import cn.sanenen.dm.grpc.pkg.terminal.base.BaseJavaPg;
+import cn.sanenen.dm.grpc.pkg.control.ControlServerPg;
 import cn.sanenen.dm.server.common.TerminalCache;
 import cn.sanenen.dm.server.common.TerminalContext;
 import com.sun.jna.platform.win32.Variant;
@@ -23,7 +23,7 @@ public class TerminalService {
     public void delFiles(String ip) {
         log.info("删除文件");
         TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
-        terminalContext.baseClient.delAllFiles();
+        terminalContext.grpcTerminal.delAllFiles();
     }
 
     public void uploadFiles(String ip) {
@@ -35,12 +35,12 @@ public class TerminalService {
         log.info("资源目录：{}",dmFilesDir.getPath());
         List<File> files = FileUtil.loopFiles(dmFilesDir);
         if (CollUtil.isNotEmpty(files)) {
-            List<BaseJavaPg.getHasFilesResponse.HasFile> hasFiles = terminalContext.baseClient.getHasFiles();
+            List<ControlServerPg.GetHasFilesResponse.HasFile> hasFiles = terminalContext.baseClient.getHasFiles();
             for (File file : files) {
                 long size = FileUtil.size(file);
                 String path = FileUtil.subPath(dmFilesDir.getPath(), file);
                 boolean flag = true;
-                for (BaseJavaPg.getHasFilesResponse.HasFile hasFile : hasFiles) {
+                for (ControlServerPg.GetHasFilesResponse.HasFile hasFile : hasFiles) {
                     if (path.equals(hasFile.getFilePath()) && size == hasFile.getFileSize()) {
                         log.info("资源已存在：{}",hasFile.getFilePath());
                         flag = false;
@@ -56,8 +56,8 @@ public class TerminalService {
 
     public List<String> getHasFiles(String ip) {
         TerminalContext terminalContext = TerminalCache.getTerminalContext(ip);
-        List<BaseJavaPg.getHasFilesResponse.HasFile> hasFiles = terminalContext.baseClient.getHasFiles();
-        return hasFiles.stream().map(BaseJavaPg.getHasFilesResponse.HasFile::getFilePath).toList();
+        List<ControlServerPg.GetHasFilesResponse.HasFile> hasFiles = terminalContext.baseClient.getHasFiles();
+        return hasFiles.stream().map(ControlServerPg.GetHasFilesResponse.HasFile::getFilePath).toList();
     }
 
     public String getDmVer(String ip) {
@@ -71,12 +71,13 @@ public class TerminalService {
         
         Variant.VARIANT x = new Variant.VARIANT(new IntByReference());
         Variant.VARIANT y = new Variant.VARIANT(new IntByReference());
-        long result = dmMain.FindPic(0, 0, 4000, 4000, "img/test1.bmp", "000000", 0.9, 0, x, y);
+        long result = dmMain.FindPic(0, 0, 4000, 4000, "img/test1.bmp", "101010", 0.8, 0, x, y);
         log.info("FindPic:{}", result != -1 ? "成功" : "失败");
         if (result != -1) {
             log.info("x:{},y:{}", x.getValue(), y.getValue());
-            long moveToResult = dmMain.MoveTo(x.intValue(), y.intValue());
+            long moveToResult = dmMain.MoveTo(x.intValue()+25, y.intValue()+25);
             log.info("MoveTo:{}", moveToResult == 1 ? "成功" : "失败");
+            dmMain.LeftClick();
         }
         x.clear();
         y.clear();
